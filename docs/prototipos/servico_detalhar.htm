@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			
+		<title>FRAMESOFT-123 Erro no cadastro de usuários</title>
+		
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+		
+		<script type="text/javascript">
+			$(window).scroll(function () {
+				if(this.pageYOffset > 54){
+					$('.sumario').css('position', 'fixed');
+					$('.sumario').css('top', '0');
+				}else{
+					$('.sumario').css('position', 'absolute');
+					$('.sumario').css('top', '');
+				}
+			});
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="geral">
+			
+			<div class="cabecalho">
+			</div>
+			
+			<div class="conteudo-menu">
+				<ul class="menu">
+					<li><a href="dashboard_simples.htm">Dashboard</a></li>
+					
+					<li class="ativo"><a href="">Serviços <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+						<ul class="submenu">
+							<li><a href="servico_solicitar.htm">Solicitar Serviço</a></li>
+							<li><a href="servico_consultar.htm">Consultar Serviço</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="">Configurações <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="configuracao_consultar-empresa.htm">Cadastrar Empresa</a></li>
+							<li><a href="configuracao_consultar-usuario.htm">Cadastrar Usuario</a></li>
+							<li><a href="configuracao_consultar-item_de_configuracao.htm">Cadastrar Item de Configuração</a></li>
+							<li><a href="">Cadastrar Tipo de Serviço</a></li>
+							<li><a href="">Cadastrar Serviço Padrão</a></li>							
+							<li><a href="">Cadastrar Contrato</a></li>
+							<li><a href="">Cadastrar Sla</a></li>
+							<li><a href="">Cadastrar Post</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="">Financeiro <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="">Fechamento</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+			
+			
+								
+			<div class="sumario">					
+				<div>
+					<span><a href="">FRAMESOFT-123</a></span>
+					<h2>Erro no cadastro de usuários</h2>
+					
+					<div class="acoes">
+						<div class="btn-group">						
+							<a class="btn-1" href="">Assumir</a><a class="btn-1" href="">Rejeitar</a><a class="btn-1" href="">Cancelar</a>								
+						</div>
+						
+						<div class="btn-group">						
+							<a class="btn-1" href="">Reclassificar</a><a class="btn-1" href="">Problema</a><a class="btn-1" href="">Atribuir</a>								
+						</div>
+					</div>
+				</div>					
+			</div>
+			
+			<div class="margin-sumario"></div>
+			
+			<div class="conteudo" style="padding-top:45px;">
+				<div class="linha">
+				
+					<div class="coluna_7">
+						<div style="padding:10px;">
+							<h2 class="titulo">Detalhes do Serviço</h2>
+							<hr>
+							<ul class="itens-detalhes-2">
+								<li>
+									<strong>Tipo:</strong>
+									<span>Incidente</span>
+								</li>
+								<li class="item-2-right">
+									<strong>Situação</strong>
+									<span>Aberto</span>
+								</li>
+								<li>
+									<strong>Prioridade:</strong>
+									<span>Baixa</span>
+								</li>
+								<li class="item-2-right">
+									<strong>Sla:</strong>
+									<span>Sla Padrão</span>
+								</li>								
+								<li>
+									<strong>Item de Configuração:</strong>
+									<span>USU001 - Cadatrar usuario</span>
+								</li>								
+							</ul>			
+						</div>
+						
+						<div style="padding:10px;">
+							<h2 class="titulo">Descrição</h2>
+							<hr>
+							<div>
+								Ao clicar no botão salvar é apresentado o erro em anexo.
+							</div>
+						</div>
+						
+						<div style="padding:10px;">
+							<h2 class="titulo">Anexos</h2>
+							<hr>
+							Não existe anexo.
+						</div>
+						
+						<div style="padding:10px;">
+							<h2 class="titulo">Atividades</h2>
+							<hr>
+							
+							<ul class="tab-detalhes">
+								<li class="active">Todos</li>
+								<li>Historico de Mudança</li>
+								<li>Comentarios</li>
+								<li>Atividades</li>
+							</ul>
+							
+							<div id="todos">
+								<table class="atividades" width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> alterou a situação de "Em Atendimento" para "Atendido" em <a href="">FRAMESOFT-100</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> O problema foi resolvido, é necessario atualizar o sistema.</span></td>
+											<td width="30%" align="right">Hoje 08:10 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> alterou a situação de "Aberto" para "Em Atendimento" em <a href="">FRAMESOFT-20</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> O problema foi resolvido, é necessario atualizar o sistema.</span></td>
+											<td width="30%" align="right">Hoje 09:20 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> requisitou informações em <a href="">FRAMESOFT-346</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> favor anexar um print do erro.</span></td>
+											<td width="30%" align="right">Hoje 09:34 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> reclassificou o tipo de "Serviço Padrão" para "Incidente" em <a href="">FRAMESOFT-102</a> (Erro ao cadastrar usuarios). <br></td>
+											<td width="30%" align="right">Hoje 10:11 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a>  reclassificou o tipo de "Incidente" para "Mudança" em <a href="">FRAMESOFT-203</a> (Erro ao cadastrar usuarios). <br></td>
+											<td width="30%" align="right">Ontem 15:10 PM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a>  reclassificou o tipo de "Sugestão" para "Reclamação" em em <a href="">FRAMESOFT-276</a> (Erro ao cadastrar usuarios). <br></td>
+											<td width="30%" align="right">Ontem 16:45 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> alterou o status de "Atendido" para "Finaliado" em <a href="">FRAMESOFT-973</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> O problema foi resolvido, é necessario atualizar o sistema.</span></td>
+											<td width="30%" align="right">01/01/2013 08:01 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> alterou o status de "Atendido" para "Aguardando Informação" em <a href="">FRAMESOFT-136</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> O problema foi resolvido, é necessario atualizar o sistema.</span></td>
+											<td width="30%" align="right">01/01/2013 11:50 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> rejeitou o serviço <a href="">FRAMESOFT-324</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> Favor atribuir para a equipe do suporte de infra.</span></td>
+											<td width="30%" align="right">02/01/2013 01:10 AM</td>
+										</tr>
+										
+										<tr>
+											<td width="70%"><a href="servico_detalhar.htm">Avner Felipe Gonçalves</a> alterou o status de "Em Atendimento" para "Atendido" em <a href="">FRAMESOFT-765</a> (Erro ao cadastrar usuarios). <br><span class="resumo"> O problema foi resolvido, é necessario atualizar o sistema.</span></td>
+											<td width="30%" align="right">02/01/2013 18:10 PM</td>
+										</tr>
+										
+										<tr>
+											<td colspan="2"><a href="servico_detalhar.htm">Mostrar Mais...</a></td>
+										</tr>
+									<tbody>	
+								</table>
+							</div>
+							
+						</div>
+					</div>
+					
+					<div class="coluna_3">
+						<div style="padding:10px;">
+							<h2 class="titulo">Pessoa</h2>
+							<hr>
+							<ul class="itens-detalhes-1">
+								<li>
+									<strong>Responsável:</strong>
+									<span class="detalhes"><a href="">Avner Felipe Gonçalves</a></span>
+								</li>
+								<li>
+									<strong>Criado Por:</strong>
+									<span class="detalhes"><a href="">Avner Felipe Gonçalves</a></span>
+								</li>
+							</ul>
+						</div>
+						
+						<div style="padding:10px;">
+							<h2 class="titulo">Data</h2>
+							<hr>
+							
+							<ul class="itens-detalhes-1">
+								<li>
+									<strong>Criado:</strong>
+									<span class="detalhes">10/10/2010</span>
+								</li>
+								<li>
+									<strong>Respondido:</strong>
+									<span class="detalhes">??/??/????</span>
+								</li>
+								<li>
+									<strong>Atualizado:</strong>
+									<span class="detalhes">10/10/2010</span>
+								</li>
+								<li>
+									<strong>Pervisão de Resposta:</strong>
+									<span class="detalhes">10/10/2010</span>
+								</li>
+								<li>
+									<strong>Pervisão de Finalização:</strong>
+									<span class="detalhes">10/10/2010</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+			</div>
+				
+		</div>
+	</body>
+</html>

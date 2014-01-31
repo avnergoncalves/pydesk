@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			
+		<title>Cadastrar Usuario - Globaldesk</title>
+		
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" type="text/css" />
+		<link href="css/ui.multiselect.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+		<script type="text/javascript" src="js/ui.multiselect.js"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$(".multiselect").multiselect({sortable: false, searchable: false});				
+			});
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="geral">
+			
+			<div class="cabecalho">
+			</div>
+			
+			<div class="conteudo-menu">
+				<ul class="menu">
+					<li><a href="dashboard_simples.htm">Dashboard</a></li>
+					
+					<li><a href="">Serviços <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+						<ul class="submenu">
+							<li><a href="servico_solicitar.htm">Solicitar Serviço</a></li>
+							<li><a href="servico_consultar.htm">Consultar Serviço</a></li>
+						</ul>
+					</li>
+					
+					<li class="ativo"><a href="">Configurações <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="configuracao_consultar-empresa.htm">Cadastrar Empresa</a></li>
+							<li><a href="configuracao_consultar-usuario.htm">Cadastrar Usuário</a></li>
+							<li><a href="configuracao_consultar-item_de_configuracao.htm">Cadastrar Item de Configuração</a></li>							
+							<li><a href="">Cadastrar Contrato</a></li>
+							<li><a href="">Cadastrar Sla</a></li>
+							<li><a href="">Cadastrar Post</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="">Financeiro <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="">Fechamento</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+			
+			
+								
+			<div class="sumario">					
+				<div>					
+					<h1>Cadastrar Usuário</h1>
+				</div>					
+			</div>
+			
+			<div class="margin-sumario"></div>
+			
+			<div class="conteudo">
+				<form>
+				<div class="linha">
+				
+				  <fieldset>
+					<legend>Dados do Usuário</legend>
+						
+						<div class="campo">
+							<label>
+								Nome <span class="obrigatorio">*</span>
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="50" />
+						</div>
+						
+						<div class="campo">
+							<label>
+								E-mail
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="40" />							
+						</div>
+						
+						<div class="campo">
+							<label>
+								Receber E-mail's
+							</label>
+							<input checked="checked" type="checkbox" name="campo1" id="campo1" value="" />
+						</div>
+						
+						<div class="campo">
+							<label>
+								Login <span class="obrigatorio">*</span>
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="20" />
+						</div>
+						
+						<div class="campo">
+							<label>
+								Senha <span class="obrigatorio">*</span>
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="20" />
+						</div>
+						
+						<div class="campo">
+							<label>
+								Confirmar Senha <span class="obrigatorio">*</span>
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="20" />
+						</div>
+						
+						<div class="campo">
+							<label >
+								CPF <span class="obrigatorio">*</span>
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="20" />
+						</div>											
+						
+						<div class="campo">
+							<label>
+								Telefone
+							</label>
+							<input type="text" name="campo1" id="campo1" value="" size="20" />
+						</div>
+						
+						<div class="campo">
+							<label>
+								Empresa <span class="obrigatorio">*</span>
+							</label>
+							<select name="" id="">
+								<option value=""> -- Selecione -- </option>
+							</select>
+						</div>
+						
+						<div class="campo">
+							<label>
+								Tipo de Usuário <span class="obrigatorio">*</span>
+							</label>
+							<select name="" id="">
+								<option value=""> -- Selecione -- </option>
+							</select>
+						</div>
+					</fieldset>
+					
+					<fieldset>
+					<legend>Relacionamentos</legend>
+					
+						<div class="campo">
+							<label>
+								Equipes								
+							</label>
+							
+							<a class="btn-2" href="">Adicionar / Remover</i></a> (Projeto 1, Projeto 2, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3, Projeto 3 e Projeto 3)
+														
+							<div class="dsp_none">
+								<select id="countries" class="multiselect" multiple="multiple" name="countries[]">
+									<option value="1">teste 1</option>
+									<option value="2">teste 2</option>
+									<option value="3">teste 3</option>
+									<option value="4">teste 4</option>
+									<option value="5">teste 5</option>
+									<option value="6">teste 6</option>
+									<option value="7">teste 7</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="campo">
+							<label>
+								Perfis <span class="obrigatorio">*</span>								
+							</label>
+														
+							<a class="btn-2" href="">Adicionar / Remover</i></a> (Vazio)
+							
+							<div class="dsp_none">
+								<select id="countries" class="multiselect" multiple="multiple" name="countries[]">
+									<option value="1">teste 1</option>
+									<option value="2">teste 2</option>
+									<option value="3">teste 3</option>
+									<option value="4">teste 4</option>
+									<option value="5">teste 5</option>
+									<option value="6">teste 6</option>
+									<option value="7">teste 7</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="campo">
+							<label>
+								Permissões <span class="obrigatorio">*</span>
+							</label>
+							
+							<a class="btn-2" href="">Adicionar / Remover</i></a> (Vazio)
+							
+							<div class="dsp_none">
+								<select id="countries" class="multiselect" multiple="multiple" name="countries[]">
+									<option value="1">teste 1</option>
+									<option value="2">teste 2</option>
+									<option value="3">teste 3</option>
+									<option value="4">teste 4</option>
+									<option value="5">teste 5</option>
+									<option value="6">teste 6</option>
+									<option value="7">teste 7</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="campo">
+							<label>Tipos de IC's</label>
+							
+							<a class="btn-2" href="">Adicionar / Remover</i></a> (Vazio)
+							
+							<div class="dsp_none">
+								<select id="countries" class="multiselect" multiple="multiple" name="countries[]" disabled="disabled">
+									<option value="1">teste 1</option>
+									<option value="2">teste 2</option>
+									<option value="3">teste 3</option>
+									<option value="4">teste 4</option>
+									<option value="5">teste 5</option>
+									<option value="6">teste 6</option>
+									<option value="7">teste 7</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>		
+						
+					<div class="campo">							
+						<div class="btn-group">
+							<a class="btn-1 btn-azul" href="">Salvar</a>
+						</div>
+						
+						<div class="btn-group">
+							<a class="btn-1 btn-azul" href="javascript:history.go(-1);">Voltar</a>
+						</div>
+					</div>											
+				</div>
+			</div>				
+			</form>
+		</div>
+		
+		
+	</body>
+</html>

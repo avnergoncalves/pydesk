@@ -1,0 +1,696 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PRODERJ - Vale Transporte</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/jquery-ui-1.8.24.custom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/jquery-ui-1.8.24.custom.min.js"></script>
+<script type="text/javascript" src="javascript/jquery.ui.datepicker-pt-BR.js"></script>
+<script type="text/javascript" src="javascript/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="javascript/menu.js"></script>
+<script type="text/javascript" src="javascript/jquery.cookie.js"></script>
+<script type="text/javascript" src="javascript/acessibilidade.js"></script>
+<script type="text/javascript" src="javascript/javascript.js"></script>
+</head>
+
+<body>
+<div class="geral">
+	<div class="governo">
+		<div class="logotipo">Governo do Estado do Rio de Janeiro</div>
+		<div class="bloco">
+            <div class="links">
+                <a href="http://www.rj.gov.br/web/guest;jsessionid=1C533E4CF6D09373CB2B692D42AB8487.lportal2" target="_blank">RIO POUPA TEMPO NA WEB</a> |
+                <a href="http://www.rj.gov.br/web/informacaopublica/" target="_blank">INFORMAÇÃO PÚBLICA</a>
+            </div>
+            <div class="acessibilidade">
+                <ul>
+                    <li class="aumentar_fonte divisao"><a href="#" rel="nofollow">Aumentar fonte do texto</a></li>
+                    <li class="diminuir_fonte divisao"><a href="#" rel="nofollow">Diminuir fonte do texto</a></li>
+                    <li class="normalizar_fonte divisao"><a href="#" rel="nofollow">Voltar para tamanho original da fonte do texto</a></li>
+                    <li class="altocontraste_fonte"><a href="#" rel="nofollow">Ativar Alto contraste</a></li>
+                </ul>
+            </div>
+        </div>
+	</div>
+	<div class="superior">
+		<div class="logotipo"><img src="imagens/logotipo_valetransporte.png" width="238" height="45" alt="Vale Transporte - Sistema de Gerenciamento" title="Vale Transporte - Sistema de Gerenciamento"></div>
+		<div class="saudacao">
+        	Bom dia, Rafael!<br />
+            Na empresa <span class="destaque">TEATRO MUNICIPAL</span>,<br />
+            seu perfil é <span class="destaque">ADMINISTRADOR MASTER</span> e <span class="destaque">ADMINISTRADOR</span></div>
+		<div class="menu">
+			<ul>
+				<li><a href="perfiladministrador_inicio.htm">INÍCIO</a></li>
+				<li><a href="perfiladministrador_visualizardiastrabalhados.htm">PRESENÇA</a></li>
+				<li class="pai"><a href="#" class="selecionado">CADASTRO</a>
+					<div class="submenu">
+						<div class="acabamento_01"></div>
+						<ul>
+							<li><a href="perfiladministrador_usuario.htm">usuários</a></li>
+							<li><a href="perfiladministrador_empresa.htm">empresa</a></li>
+							<li><a href="perfiladministrador_unidade_administrativa.htm">unidade administrativa</a></li>
+							<li><a href="perfiladministrador_centro_custo.htm">centro de custo</a></li>
+							<li><a href="perfiladministrador_funcionario.htm">funcionário</a></li>
+							<li><a href="perfiladministrador_tarifa.htm">tarifa</a></li>
+							<li><a href="perfiladministrador_escala.htm">escala</a></li>
+							<li><a href="perfiladministrador_feriado.htm">feriado</a></li>
+							<li><a href="perfiladministrador_ferias_faltas_licenca.htm">férias, faltas ou licenças</a></li>
+							<li><a href="perfiladministrador_credito.htm">crédito</a></li>
+							<li><a href="perfiladministrador_vtporfuncionario.htm">vale transporte por funcionário</a></li>
+						</ul>
+						<div class="acabamento_02"></div>
+					</div>
+				</li>
+				<li><a href="#">RELATÓRIO</a>
+                    <div class="submenu">
+                        <div class="acabamento_01"></div>
+                        <ul>
+                            <li><a href="perfiladministrador_relatorio_recibovaletransporte.htm">recibo de vale-transporte</a></li>
+                            <li><a href="perfiladministrador_relatorio_pagamentomensal.htm">pagamento mensal</a></li>
+                            <li><a href="perfiladministrador_relatorio_tarifaporcentrodecusto.htm">tarifa por centro de custo</a></li>
+                            <li><a href="perfiladministrador_relatorio_afastamento.htm">relatório de afastamento</a></li>
+                        </ul>
+                        <div class="acabamento_02"></div>
+                    </div>
+                </li>
+				<li><a href="#">AUDITORIA</a>
+                    <div class="submenu">
+                        <div class="acabamento_01"></div>
+                        <ul>
+                            <li><a href="perfiladministrador_tarifa_log.htm">log de tarifa</a></li>
+                            <li><a href="perfiladministrador_valetransporte_log.htm">log de vale transporte</a></li>                            
+                        </ul>
+                        <div class="acabamento_02"></div>
+                    </div>
+				</li>
+				<li><a href="#">ARQUIVO</a>
+                    <div class="submenu">
+                        <div class="acabamento_01"></div>
+                        <ul>
+                            <li><a href="#">pagamento sigrh</a></li>
+                            <li><a href="#">pagamento sape</a></li>
+                            <li><a href="#">arquivo riocard</a></li>
+                            <li><a href="perfiladministrador_envio_pagamento.htm">enviar arquivo de pagamento</a></li>
+                        </ul>
+                        <div class="acabamento_02"></div>
+                    </div>
+				</li>
+				<li><a href="#">SAIR</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="principal">
+		<div class="cabecalho">
+			<div class="data">04 setembro 2012 - 11:42</div>
+			<div class="caminho">CADASTRO 
+            	<span class="seta_caminho">&nbsp;</span> <span class="font_size_18_px">empresa</span>
+            	<span class="seta_caminho">&nbsp;</span> <span class="font_size_18_px">incluir</span>
+            </div>
+			<div class="botoes"><a href="#" class="margin_left_1">FECHAR SETEMBRO</a><a href="javascript:history.back()">
+				<div class="seta"></div>
+				VOLTAR</a></div>
+		</div>
+		<div class="acabamento_01"></div>
+		<div class="conteudo">		
+            <div class="mensagem_sucesso">
+                <div class="icone_mensagens"><img src="imagens/icone_sucesso.png"></div>
+                <div class="mensagem cor_ffffff">AS PASSAGENS DO FUNCIONÁRIO FORAM INCLUÍDAS COM SUCESSO!</div>
+            </div>
+        </div>
+        
+		<div class="conteudo">
+			<div class="instrucoes">
+				<p>O exemplo de erro à direita, demonstra como será a mensagem na parte superior para as situações onde o formulário foi submetido com suceso.</p>
+			</div>
+			<div class="seta"></div>			
+			<div class="direita">
+				<form>
+					<h2>INCLUIR EMPRESA</h2>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="razaoSocial"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RAZÃO SOCIAL</label>
+							<div class="campo_input"><input id="razaoSocial" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="cnpj"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CNPJ</label>
+							<div class="campo_input"><input id="cnpj" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="codEmpresa"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CÓDIGO DA EMPRESA</label>
+							<div class="campo_input_01"><input id="codEmpresa" type="text"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="rubrica"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RUBRICA</label>
+							<div class="campo_input"><input id="rubrica" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="cep">CEP</label>
+							<div class="campo_input"><input id="cep" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>			
+					</div>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="logradouro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> LOGRADOURO</label>
+							<div class="campo_input"><input id="logradouro" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="complemento">COMPLEMENTO</label>
+							<div class="campo_input"><input id="complemento" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="uf"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> UF</label>
+							<div class="campo_input">
+                            	<select id="uf" style="width:150px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="municipio"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> MUNICÍPIO</label>
+							<div class="campo_input">
+                            	<select id="municipio" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>				
+					</div>
+					<div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:340px;">
+							<label for="cidade"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CIDADE</label>
+							<div class="campo_input">
+                            	<select id="cidade" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="bairro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> BAIRRO</label>
+							<div class="campo_input">
+                            	<select id="bairro" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone01"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> TELEFONE 1</label>
+							<div class="campo_input"><input id="telefone01" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone02">TELEFONE 2</label>
+							<div class="campo_input"><input id="telefone02" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="telefone03">TELEFONE 3</label>
+							<div class="campo_input"><input id="telefone03" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+					</div>
+									
+				</form>
+				<div class="botao"><a href="#">INCLUIR</a></div>
+								
+			</div>
+		</div>	
+
+
+
+
+        
+		<div class="conteudo">		
+            <div class="mensagem_erro">
+                <div class="icone_mensagens"><img src="imagens/icone_alerta.png"></div>
+                <div class="mensagem cor_000000">ALGUNS CAMPOS ABAIXO DEVEM SER CORRIGIDOS!</div>
+            </div>
+        </div>
+        
+		<div class="conteudo">
+			<div class="instrucoes">
+				<p>O exemplo de erro à direita, demonstra como será a mensagem na parte superior quando campos obrigatórios não foram preenchidos.</p>
+			</div>
+			<div class="seta"></div>			
+			<div class="direita">
+				<form>
+					<h2>INCLUIR EMPRESA</h2>
+                    <div class="linha">
+						<div class="campo erro" style="width:700px;">
+							<label for="razaoSocial"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RAZÃO SOCIAL</label>
+							<div class="campo_input"><input id="razaoSocial" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+                            <div class="reporte">Preenchimento obrigatório</div>                            
+						</div>
+					</div>
+                    <div class="linha">
+						<div class="campo erro margin_right_20" style="width:160px;">
+							<label for="cnpj"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CNPJ</label>
+							<div class="campo_input"><input id="cnpj" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+                            <div class="reporte">Preenchimento obrigatório</div>
+						</div>
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="codEmpresa"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CÓDIGO DA EMPRESA</label>
+							<div class="campo_input_01"><input id="codEmpresa" type="text"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="rubrica"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RUBRICA</label>
+							<div class="campo_input"><input id="rubrica" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo erro" style="width:160px;">
+							<label for="cep">CEP</label>
+							<div class="campo_input"><input id="cep" type="text" style="width:150px;" value="000.000.000.00"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+                            <div class="reporte">CEP Inválido</div>  
+						</div>			
+					</div>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="logradouro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> LOGRADOURO</label>
+							<div class="campo_input"><input id="logradouro" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="complemento">COMPLEMENTO</label>
+							<div class="campo_input"><input id="complemento" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="uf"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> UF</label>
+							<div class="campo_input">
+                            	<select id="uf" style="width:150px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="municipio"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> MUNICÍPIO</label>
+							<div class="campo_input">
+                            	<select id="municipio" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>				
+					</div>
+					<div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:340px;">
+							<label for="cidade"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CIDADE</label>
+							<div class="campo_input">
+                            	<select id="cidade" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="bairro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> BAIRRO</label>
+							<div class="campo_input">
+                            	<select id="bairro" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						
+                        <div class="campo erro margin_right_20" style="width:160px;">
+							<label for="telefone01"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> TELEFONE 1</label>
+							<div class="campo_input"><input id="telefone01" type="text" style="width:150px;" value="000-00"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+                            <div class="reporte">TELEFONE 1 Inválido</div>                              
+						</div>						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone02">TELEFONE 2</label>
+							<div class="campo_input"><input id="telefone02" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="telefone03">TELEFONE 3</label>
+							<div class="campo_input"><input id="telefone03" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+					</div>
+									
+				</form>
+				<div class="botao"><a href="#">INCLUIR</a></div>
+								
+			</div>
+		</div>	
+
+
+
+
+
+		<div class="conteudo">		
+            <div class="mensagem_erro">
+                <div class="icone_mensagens"><img src="imagens/icone_alerta.png"></div>
+                <div class="mensagem cor_000000">VOCÊ NÃO TEM ACESSO A ESSA ÁREA DO SITE!</div>
+            </div>
+        </div>
+        
+		<div class="conteudo">
+			<div class="instrucoes">
+				<p>O exemplo de erro à direita, demonstra como será a mensagem na parte superior para as situações onde no mínimo um campo deve ser preenchido.</p>
+			</div>
+			<div class="seta"></div>			
+			<div class="direita">
+				<form>
+					<h2>INCLUIR EMPRESA</h2>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="razaoSocial"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RAZÃO SOCIAL</label>
+							<div class="campo_input"><input id="razaoSocial" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>                        
+						</div>
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="cnpj"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CNPJ</label>
+							<div class="campo_input"><input id="cnpj" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="codEmpresa"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CÓDIGO DA EMPRESA</label>
+							<div class="campo_input_01"><input id="codEmpresa" type="text"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="rubrica"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RUBRICA</label>
+							<div class="campo_input"><input id="rubrica" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="cep">CEP</label>
+							<div class="campo_input"><input id="cep" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>			
+					</div>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="logradouro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> LOGRADOURO</label>
+							<div class="campo_input"><input id="logradouro" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="complemento">COMPLEMENTO</label>
+							<div class="campo_input"><input id="complemento" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="uf"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> UF</label>
+							<div class="campo_input">
+                            	<select id="uf" style="width:150px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="municipio"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> MUNICÍPIO</label>
+							<div class="campo_input">
+                            	<select id="municipio" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>				
+					</div>
+					<div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:340px;">
+							<label for="cidade"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CIDADE</label>
+							<div class="campo_input">
+                            	<select id="cidade" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="bairro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> BAIRRO</label>
+							<div class="campo_input">
+                            	<select id="bairro" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone01"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> TELEFONE 1</label>
+							<div class="campo_input"><input id="telefone01" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone02">TELEFONE 2</label>
+							<div class="campo_input"><input id="telefone02" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="telefone03">TELEFONE 3</label>
+							<div class="campo_input"><input id="telefone03" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+					</div>
+									
+				</form>
+				<div class="botao"><a href="#">INCLUIR</a></div>
+			</div>
+		</div>	
+
+
+
+		<div class="conteudo">		
+            <div class="mensagem_erro">
+                <div class="icone_mensagens"><img src="imagens/icone_alerta.png"></div>
+                <div class="mensagem cor_000000">DADOS JÁ CADASTRADOS NO SISTEMA!</div>
+            </div>
+        </div>
+        
+		<div class="conteudo">
+			<div class="instrucoes">
+				<p>O exemplo do tipo informativo à direita, demonstra como será a mensagem na parte superior para as situações onde os dados já foram cadastrados no sistema.</p>
+			</div>
+			<div class="seta"></div>			
+			<div class="direita">
+				<form>
+					<h2>INCLUIR EMPRESA</h2>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="razaoSocial"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RAZÃO SOCIAL</label>
+							<div class="campo_input"><input id="razaoSocial" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>                        
+						</div>
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="cnpj"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CNPJ</label>
+							<div class="campo_input"><input id="cnpj" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="codEmpresa"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CÓDIGO DA EMPRESA</label>
+							<div class="campo_input_01"><input id="codEmpresa" type="text"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="rubrica"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> RUBRICA</label>
+							<div class="campo_input"><input id="rubrica" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="cep">CEP</label>
+							<div class="campo_input"><input id="cep" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>			
+					</div>
+                    <div class="linha">
+						<div class="campo" style="width:700px;">
+							<label for="logradouro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> LOGRADOURO</label>
+							<div class="campo_input"><input id="logradouro" type="text" style="width:690px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						<div class="campo margin_right_20" style="width:160px;">
+							<label for="complemento">COMPLEMENTO</label>
+							<div class="campo_input"><input id="complemento" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="uf"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> UF</label>
+							<div class="campo_input">
+                            	<select id="uf" style="width:150px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="municipio"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> MUNICÍPIO</label>
+							<div class="campo_input">
+                            	<select id="municipio" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>				
+					</div>
+					<div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:340px;">
+							<label for="cidade"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> CIDADE</label>
+							<div class="campo_input">
+                            	<select id="cidade" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:340px;">
+							<label for="bairro"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> BAIRRO</label>
+							<div class="campo_input">
+                            	<select id="bairro" style="width:330px;">
+                                	<option>Selecione</option>
+                                    <option>Opção 1</option>
+                                    <option>Opção 2</option>
+                                    <option>Opção 3</option>
+                                    <option>Opção 4</option>
+                                </select>
+                            </div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>					
+					</div>
+                    <div class="linha">
+						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone01"><span class="obrigatorio"><img src="imagens/obrigatorio.png" width="9" height="8" alt="Obrigatório" title="Obrigatório"></span> TELEFONE 1</label>
+							<div class="campo_input"><input id="telefone01" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+                        <div class="campo margin_right_20" style="width:160px;">
+							<label for="telefone02">TELEFONE 2</label>
+							<div class="campo_input"><input id="telefone02" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>
+                        <div class="campo" style="width:160px;">
+							<label for="telefone03">TELEFONE 3</label>
+							<div class="campo_input"><input id="telefone03" type="text" style="width:150px;"></div>
+							<div class="campo_fio"><div class="detalhe_fio"></div></div>
+						</div>						
+					</div>
+									
+				</form>
+				<div class="botao"><a href="#">INCLUIR</a></div>
+			</div>
+		</div>	
+
+
+		<div class="acabamento_02">
+			<div class="botoes"><a href="#" class="margin_left_1">FECHAR SETEMBRO</a><a href="javascript:history.back()">
+				<div class="seta"></div>
+				VOLTAR</a></div>
+		</div>
+	</div>
+	<div class="direito">
+		<div class="texto_01">Tecnologia PRODERJ - Todos os direitos reservados</div>
+		<div class="texto_02">Esta obra é licenciada sob uma licença Creative Commons Atribuio 2.0 Brasil</div>
+	</div>
+</div>
+</body>
+</html>

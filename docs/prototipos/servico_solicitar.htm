@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			
+		<title>Solicitar Serviço - Globaldesk</title>
+		
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.0.custom.min.js"></script>
+		
+	</head>
+
+	<body>
+		<div class="geral">
+			
+			<div class="cabecalho">
+			</div>
+			
+			<div class="conteudo-menu">
+				<ul class="menu">
+					<li><a href="dashboard_simples.htm">Dashboard</a></li>
+					
+					<li class="ativo"><a href="">Serviços <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+						<ul class="submenu">
+							<li><a href="servico_solicitar.htm">Solicitar Serviço</a></li>
+							<li><a href="servico_consultar.htm">Consultar Serviço</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="">Configurações <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="configuracao_consultar-empresa.htm">Cadastrar Empresa</a></li>
+							<li><a href="configuracao_consultar-usuario.htm">Cadastrar Usuario</a></li>
+							<li><a href="configuracao_consultar-item_de_configuracao.htm">Cadastrar Item de Configuração</a></li>
+							<li><a href="">Cadastrar Contrato</a></li>
+							<li><a href="">Cadastrar Sla</a></li>
+							<li><a href="">Cadastrar Post</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="">Financeiro <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<ul class="submenu">
+							<li><a href="">Fechamento</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+			
+			
+								
+			<div class="sumario">					
+				<div>					
+					<h1>Solicitar Serviço</h1>
+				</div>					
+			</div>
+			
+			<div class="margin-sumario"></div>
+			
+			<div class="conteudo">
+				<div class="linha">						
+						<fieldset>
+							<legend>Dados do Requisitante</legend>
+					
+							<div class="campo">
+								<label>
+									Empresa
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>
+							</div>
+							
+							<div class="campo">
+								<label >
+									Usuario <span class="obrigatorio">*</span>
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>							
+							</div>
+							
+							<div class="campo">
+								<label>
+									E-mail's
+								</label>
+								<textarea cols="90" rows="2"></textarea>
+								<span class="observacao">Obs: Utilize ";" para separar os e-mails. Exemplo: "email1@exemplo.com;email2@exemplo.com".</span>
+							</div>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Dados do Item de Configuração</legend>
+							<div class="campo">
+								<label>
+									Tipo
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>
+							</div>
+							
+							<div class="campo">
+								<label>
+									Grupo
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>
+							</div>
+							
+							<div class="campo">
+								<label>
+									SubGrupo
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>							
+							</div>
+							
+							<div class="campo">
+								<label>
+									Item de Configuração <span class="obrigatorio">*</span>
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>							
+								<input type="text" name="campo1" id="campo1" value="Codigo" size="10" />
+							</div>
+						</fieldset>
+						
+						
+						<fieldset>
+							<legend>Dados do Serviço</legend>
+							<div class="campo">
+								<label>
+									Tipo <span class="obrigatorio">*</span>
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>
+							</div>
+							
+							<div class="campo">
+								<label>
+									Prioridade <span class="obrigatorio">*</span>
+								</label>
+								<select name="" id="">
+									<option> -- Seleciona -- </option>
+								</select>
+							</div>
+							
+							<div class="campo">
+								<label>
+									Resumo <span class="obrigatorio">*</span>
+								</label>
+								<input type="text" name="campo1" id="campo1" value="" size="60" />
+							</div>
+							
+							<div class="campo">
+								<label>
+									Descrição <span class="obrigatorio">*</span>
+								</label>
+								<textarea cols="90" rows="8"></textarea>
+							</div>
+							
+							<div class="campo">
+								<label>
+									Anexo <span class="obrigatorio">*</span>
+								</label>
+								<input type="file" name="campo1" id="campo1" value="" size="40" />
+								<span class="observacao">(doc, docx, xls, xlsx, pdf, jpg, jpeg e png)</span>
+							</div>
+						</fieldset>											
+						
+						<div class="campo">							
+							<div class="btn-group">
+								<a class="btn-1 btn-azul" href="">Solicitar</a>							
+							</div>
+						</div>
+						
+				<div>
+			</div>				
+				
+		</div>
+	</body>
+</html>
