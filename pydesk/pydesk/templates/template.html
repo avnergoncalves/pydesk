@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -21,6 +20,39 @@
 	<body>
 		<div class="geral">
 			<div class="cabecalho"></div>
+			
+			{% if user.is_authenticated %}
+				<div class="conteudo-menu">
+					<ul class="menu">
+						<li class="ativo"><a href="{% url 'dashboard.views.home' %}">Dashboard</a></li>
+	
+						<li><a href="">Serviços <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+							<ul class="submenu">
+								<li><a href="servico_solicitar.htm">Solicitar Serviço</a></li>
+								<li><a href="servico_consultar.htm">Consultar Serviço</a></li>
+							</ul>
+						</li>
+	
+						<li><a href="">Configurações <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+							<ul class="submenu">
+								<li><a href="{% url 'configuration.views.enterprise_list' %}">Cadastrar Empresa</a></li>	
+								<li><a href="configuracao_consultar-usuario.htm">Cadastrar Usuario</a></li>
+								<li><a href="configuracao_consultar-item_de_configuracao.htm">Cadastrar Item de Configuração</a></li>
+								<li><a href="">Cadastrar Contrato</a></li>
+								<li><a href="">Cadastrar Sla</a></li>
+								<li><a href="">Cadastrar Post</a></li>
+							</ul>
+						</li>
+	
+						<li><a href="">Financeiro <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+							<ul class="submenu">
+								<li><a href="">Fechamento</a></li>
+							</ul>
+						</li>
+						<li><a href="{% url 'accounts.views.logout' %}">Sair</a></li>
+					</ul>
+				</div>
+			{% endif %}
 
 			{% block body %}{% endblock %}
 

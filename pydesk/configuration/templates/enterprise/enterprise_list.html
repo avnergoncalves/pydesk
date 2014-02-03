@@ -1,0 +1,200 @@
+{% extends "template.html" %}
+{% load staticfiles %}
+
+{% block title %}Enterprise{% endblock %}
+
+{% block header %}
+	<script src="{% static 'js/enterprise/enterprise.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+<div class="sumario">
+	<div>
+		<div style="float:right;">
+			<a class="btn-3" href="{% url 'configuration.views.enterprise_add' %}">Cadastrar <i class="icone-preto ui-icon-plus"></i></a>
+		</div>
+		<h1>Consultar Empresa</h1>
+	</div>
+</div>
+
+<div class="margin-sumario"></div>
+
+<div class="conteudo"> 
+	
+	<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;border-bottom:1px solid #EEEEEE;">
+		<div class="btn-group">
+			<a class="btn-1 btn-azul" href="">Filtro 1<i class="icone-branco ui-icon-triangle-1-s"></i></a><a class="btn-1 btn-azul" href="">Filtro 2<i class="icone-branco ui-icon-triangle-1-s"></i></a>
+		</div>
+		
+		<div class="btn-group">
+			<a class="btn-1" href="">Filtro 1<i class="icone-preto ui-icon-triangle-1-s"></i></a><a class="btn-1" href="">Filtro 2<i class="icone-preto ui-icon-triangle-1-s"></i></a>
+		</div>
+	</div>
+	
+	<div class="grid-consulta">
+		
+		
+		<div class="btn-group">							
+			<a href="" class="btn-2"><i class="icone-preto ui-icon-seek-first"></i></a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-prev"></i></a><a href="javascript::" class="btn-2">1</a><a href="javascript::" class="btn-2">2</a><a href="javascript::" class="btn-2">3</a><a href="javascript::" class="btn-2">4</a><a href="javascript::" class="btn-2">5</a><a href="javascript::" class="btn-2">6</a><a href="javascript::" class="btn-2">7</a><a href="javascript::" class="btn-2">8</a><a href="javascript::" class="btn-2">9</a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-next"></i></a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-end"></i></a>			
+		</div>
+		
+		
+		<div class="grid-consula-total">
+			1 - 50 de 1000
+		</div>
+		
+		
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<thead>
+				<tr>
+					<th align="left" width="40%">Razão Social <i class="icone-preto ui-icon-arrowthick-1-s"></i></th>
+					<th align="left" width="40%">Nome Fantasia </th>
+					<th width="10%">CNPJ</th>
+					<th width="5%">Editar</th>								
+					<th width="5%">Status</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>								
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-closethick"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+				<tr>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td style="text-align:left;">Framesoft Desenvolvimento de Sistema Web</td>
+					<td>123.456.789/123-12</td>
+					<td><a href="configuracao_cadastrar-empresa.htm"><i class="icone-preto ui-icon-pencil"></i></a></td>
+					<td><a href=""><i class="icone-preto ui-icon-check"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+			<div class="btn-group">
+					<a href="" class="btn-2"><i class="icone-preto ui-icon-seek-first"></i></a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-prev"></i></a><a href="javascript::" class="btn-2">1</a><a href="javascript::" class="btn-2">2</a><a href="javascript::" class="btn-2">3</a><a href="javascript::" class="btn-2">4</a><a href="javascript::" class="btn-2">5</a><a href="javascript::" class="btn-2">6</a><a href="javascript::" class="btn-2">7</a><a href="javascript::" class="btn-2">8</a><a href="javascript::" class="btn-2">9</a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-next"></i></a><a href="" class="btn-2"><i class="icone-preto ui-icon-seek-end"></i></a>
+			</div>
+		
+		
+			<div class="grid-consula-total">
+				1 - 50 de 1000
+			</div>						
+		
+	</div>
+</div>
+{% endblock %}

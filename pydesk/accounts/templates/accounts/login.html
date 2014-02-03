@@ -26,10 +26,15 @@
 		<div style="margin:40px 0px 0px 10px;width:475px;">
 			<div class="logo"></div>
 			
-			{% if form.subject.errors %}
-				ALGUNS CAMPOS ABAIXO DEVEM SER CORRIGIDOS!
+			{% if form.errors %}
+				{% if form.non_field_errors %}
+					<p>{{ form.non_field_errors }}</p>
+				{% else %}
+					<p>OCORREU UM ERRO</p>
+				{% endif %}
 			{% endif %}
-			ALGUNS CAMPOS ABAIXO DEVEM SER CORRIGIDOS!
+			
+			
 			<form action="" method="post">
 				{% csrf_token %}
 				
@@ -42,7 +47,7 @@
 
 			    <div class="campo">
 			    	<div class="btn-group">
-			    		<a class="btn-1 btn-azul" href="javascript:$('form').submit();">Salvar</a>
+			    		<a class="btn-1 btn-azul" href="javascript:$('form').submit();">Entrar</a>
 			    	</div>
 			    </div>
 			    

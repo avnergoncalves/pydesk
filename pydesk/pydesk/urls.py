@@ -4,8 +4,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'pydesk.views.home', name='home'),
-     url(r'^auth', include('autentication.urls')),
-    #url(r'^admin/', include(admin.site.urls)),
+     url(r'^$', 'accounts.views.login', name='login'),
+
+     url(r'^accounts', include('accounts.urls')),
+     url(r'^dashboard', include('dashboard.urls')),
+     url(r'^configuration', include('configuration.urls')),
 )
