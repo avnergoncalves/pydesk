@@ -26,28 +26,33 @@
 		<div style="margin:40px 0px 0px 10px;width:475px;">
 			<div class="logo"></div>
 			
-			{% if form.errors %}
-				{% if form.non_field_errors %}
-					<p>{{ form.non_field_errors }}</p>
-				{% else %}
-					<p>OCORREU UM ERRO</p>
+			<div class="non-field-errors">
+				{% if form.errors %}
+					{% if form.non_field_errors %}
+						<p>{{ form.non_field_errors }}</p>
+					{% else %}
+						<p>OCORREU UM ERRO NO FORMULARIO</p>
+					{% endif %}
 				{% endif %}
-			{% endif %}
+			</div>
 			
-			
-			<form action="" method="post">
+			<form id="form_login" action="" method="post">
 				{% csrf_token %}
 				
 			    {% for field in form %}
 			        <div class="campo">
-			            {{ field.label_tag }} {{ field }}
-			            {{ field.errors }}
+			            <label for="id_{{ field.name }}">
+							{{ field.label }} 
+							{% if field.field.required %}<span class="obrigatorio">*</span>{% endif %}
+						</label>
+						{{ field }}
+						{{ field.errors }}
 			        </div>
 			    {% endfor %}
 
 			    <div class="campo">
 			    	<div class="btn-group">
-			    		<a class="btn-1 btn-azul" href="javascript:$('form').submit();">Entrar</a>
+			    		<a class="btn-1 btn-azul" id="btn_login">Entrar</a>
 			    	</div>
 			    </div>
 			    
