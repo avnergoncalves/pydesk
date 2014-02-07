@@ -13,8 +13,6 @@ $(function() {
 				
 			error: function(jqXHR, exception) {
 
-				console.log(jqXHR.status);
-
 				if (jqXHR.status === 0) {
 					alert('Not connect.\n Verify Network.');
 				} else if (jqXHR.status == 403) {
