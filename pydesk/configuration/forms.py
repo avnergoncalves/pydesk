@@ -10,7 +10,7 @@ from configuration.models import Enterprise
 
 
 class EnterpriseForm(ModelForm):
-    id = IntegerField(widget=HiddenInput)
+    id = IntegerField(widget=HiddenInput, required=False)
     
     class Meta:
         model = Enterprise
