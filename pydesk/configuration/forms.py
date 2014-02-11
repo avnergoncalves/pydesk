@@ -2,6 +2,7 @@
 Created on Feb 6, 2014
 
 @author: agoncalves
+@email: viner_lipe@hotmail.com
 '''
 
 from django.utils.translation import ugettext_lazy as _

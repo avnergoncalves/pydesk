@@ -1,3 +1,10 @@
+'''
+Created on Feb 6, 2014
+
+@author: agoncalves
+@email: viner_lipe@hotmail.com
+'''
+
 import json
 
 from django.shortcuts import render, get_object_or_404
@@ -5,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 from configuration.forms import EnterpriseForm
 from django.http.response import HttpResponse, Http404
 from configuration.models import Enterprise
-from django.forms.models import model_to_dict
 
 
 @login_required
@@ -46,7 +52,7 @@ def enterprise_ajax_save(request):
         form = EnterpriseForm(request.POST, instance=e)
         if form.is_valid():
             form.save()
-            data = {'status': '1', 'message': 'Enterprise cadastrada com sucesso'}
+            data = {'status': '1', 'message': ['Operacao realizada com sucesso']}
         else:
             data = {'status': '0', 'errors': form.errors}
 

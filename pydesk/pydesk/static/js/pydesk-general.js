@@ -4,9 +4,11 @@ $(function() {
 
 		$.ajaxSetup({
 			success:function(response){
-				clear_errors();
+				clear_messages();
 				
-				if(response.status == '0'){
+				if(response.status == '1'){
+					set_success(response.message);
+				}else if(response.status == '0'){
 					set_errors(response.errors);
 				}
 			},
@@ -36,8 +38,20 @@ $(function() {
 
 });
 
-function clear_errors(){
-	$('.errorlist, .non-field-errors').remove();
+function clear_messages(){
+	$('.errors, .success, .non-field-errors').remove();
+}
+
+function set_success(message){
+	var i, html;
+	
+	html = '<ul class="success">';
+	for (i in message){
+		html += '<li>'+message[i]+'</li>';
+	}
+	html += '</ul>';
+	
+	$('.message').html(html);
 }
 
 function set_errors(obj_errors){
@@ -57,7 +71,7 @@ function set_errors(obj_errors){
 		html1 += '<li>OCORREU UM ERRO NO FORMULARIO</li>';
 		
 		for(k in obj_errors){
-			html2 = '<ul class="errorlist">';
+			html2 = '<ul class="errors">';
 			for(i in obj_errors[k]){
 				html2+= '<li>'+obj_errors[k][i]+'</li>';
 			}
