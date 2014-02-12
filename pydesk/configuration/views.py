@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from configuration.forms import EnterpriseForm
 from django.http.response import HttpResponse, Http404
 from configuration.models import Enterprise
+from django.utils.translation import ugettext_lazy as _
 
 
 @login_required
@@ -52,7 +53,9 @@ def enterprise_ajax_save(request):
         form = EnterpriseForm(request.POST, instance=e)
         if form.is_valid():
             form.save()
-            data = {'status': '1', 'message': ['Operacao realizada com sucesso']}
+
+            message = unicode(_('Operation successful.'))
+            data = {'status': '1', 'message': [message]}
         else:
             data = {'status': '0', 'errors': form.errors}
 

@@ -1,7 +1,8 @@
 {% extends "template.html" %} 
 {% load staticfiles %}
+{% load i18n %}
  
-{% block title%}Enterprise{% endblock %}
+{% block title%}{% trans "Enterprise" %}{% endblock %}
  
 {% block header %}
 	<script src="{% static 'js/enterprise/enterprise_add.js' %}" type="text/javascript"></script>
@@ -10,7 +11,7 @@
 {% block body %}
 <div class="sumario">
 	<div>
-		<h1>Cadastrar Empresa</h1>
+		<h1>{% trans "Register Enterprise" %}</h1>
 	</div>
 </div>
 
@@ -20,7 +21,7 @@
 	<form id="form_enterprise" action="" method="post">
 		<div class="linha">
 			<fieldset>
-				<legend>Dados da Empresa</legend>
+				<legend>{% trans "Company Data" %}</legend>
 				
 				<div class="message"></div>
 				
@@ -43,11 +44,11 @@
 
 			<div class="campo">
 				<div class="btn-group">
-					<a class="btn-1 btn-azul" id="btn_salve" href="javascript:;">Salvar</a>
+					<a class="btn-1 btn-azul" id="btn_salve" href="javascript:;">{% trans "Save" %}</a>
 				</div>
 
 				<div class="btn-group">
-					<a class="btn-1 btn-azul" href="javascript:history.go(-1);">Voltar</a>
+					<a class="btn-1 btn-azul" href="javascript:history.go(-1);">{% trans "Back" %}</a>
 				</div>
 			</div>
 		</div>

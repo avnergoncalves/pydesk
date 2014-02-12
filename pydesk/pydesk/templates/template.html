@@ -1,10 +1,9 @@
+{% load staticfiles %} {% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>{% block title %}{% endblock %}</title>
-
-		{% load staticfiles %}
-
+		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 		<link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.0.custom.min.css' %}" type="text/css" />
@@ -13,7 +12,11 @@
 		
 		<script src="{% static 'js/jquery-1.9.0.min.js' %}" type="text/javascript"></script>
 		<script src="{% static 'js/jquery-ui-1.10.0.custom.min.js' %}" type="text/javascript"></script>
+		
 		<script src="{% static 'js/ui.multiselect.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/jquery.grid.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/jquery.grid.adicionais.js' %}" type="text/javascript"></script>
 		
 		<script src="{% static 'js/pydesk-general.js' %}" type="text/javascript"></script>
 
@@ -27,32 +30,32 @@
 			{% if user.is_authenticated %}
 				<div class="conteudo-menu">
 					<ul class="menu">
-						<li class="ativo"><a href="{% url 'dashboard.views.home' %}">Dashboard</a></li>
+						<li class="ativo"><a href="{% url 'dashboard.views.home' %}">{% trans "Dashboards" %}</a></li>
 	
-						<li><a href="">Serviços <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+						<li><a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
 							<ul class="submenu">
-								<li><a href="servico_solicitar.htm">Solicitar Serviço</a></li>
-								<li><a href="servico_consultar.htm">Consultar Serviço</a></li>
+								<li><a href="servico_solicitar.htm">{% trans "Request Services" %}</a></li>
+								<li><a href="servico_consultar.htm">{% trans "Consult Services" %}</a></li>
 							</ul>
 						</li>
 	
-						<li><a href="">Configurações <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<li><a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 							<ul class="submenu">
-								<li><a href="{% url 'configuration.views.enterprise_list' %}">Cadastrar Empresa</a></li>	
-								<li><a href="configuracao_consultar-usuario.htm">Cadastrar Usuario</a></li>
-								<li><a href="configuracao_consultar-item_de_configuracao.htm">Cadastrar Item de Configuração</a></li>
-								<li><a href="">Cadastrar Contrato</a></li>
-								<li><a href="">Cadastrar Sla</a></li>
-								<li><a href="">Cadastrar Post</a></li>
+								<li><a href="{% url 'configuration.views.enterprise_list' %}">{% trans "Manage Enterprises" %}</a></li>	
+								<li><a href="configuracao_consultar-usuario.htm">{% trans "Manage Users" %}</a></li>
+								<li><a href="configuracao_consultar-item_de_configuracao.htm">{% trans "Manage Configuration Items(CI's)" %}</a></li>
+								<li><a href="">{% trans "Manage Contracts" %}</a></li>
+								<li><a href="">{% trans "Manage Sla's" %}</a></li>
+								<li><a href="">{% trans "Manage Post's" %}</a></li>
 							</ul>
 						</li>
 	
-						<li><a href="">Financeiro <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						<li><a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 							<ul class="submenu">
-								<li><a href="">Fechamento</a></li>
+								<li><a href="">{% trans "Closing" %}</a></li>
 							</ul>
 						</li>
-						<li><a href="{% url 'accounts.views.logout' %}">Sair</a></li>
+						<li><a href="{% url 'accounts.views.logout' %}">{% trans "Logout" %}</a></li>
 					</ul>
 				</div>
 			{% endif %}

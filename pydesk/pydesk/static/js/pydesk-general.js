@@ -84,3 +84,18 @@ function set_errors(obj_errors){
 	
 	$('.message').html(html1);
 }
+
+function clear_form(form) {
+    $(':input', $(form)).each(function() {
+      var type = this.type;
+      var tag = this.tagName.toLowerCase(); // normalize case
+      var name = this.name; // normalize case
+
+      if (type == 'text' || type == 'password' || (type == 'hidden' && name != 'csrfmiddlewaretoken') || tag == 'textarea')
+        this.value = "";
+      else if (type == 'checkbox' || type == 'radio')
+        this.checked = false;
+      else if (tag == 'select')
+        this.selectedIndex = -1;
+    });
+  };
