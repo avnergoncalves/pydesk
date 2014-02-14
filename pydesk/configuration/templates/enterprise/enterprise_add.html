@@ -41,15 +41,11 @@
 					{% endif %}
 				{% endfor %}
 			</fieldset>
-
-			<div class="campo">
-				<div class="btn-group">
-					<a class="btn-1 btn-azul" id="btn_salve" href="javascript:;">{% trans "Save" %}</a>
-				</div>
-
-				<div class="btn-group">
-					<a class="btn-1 btn-azul" href="javascript:history.go(-1);">{% trans "Back" %}</a>
-				</div>
+		</div>
+		
+		<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;">
+			<div class="btn-group">
+				<a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="javascript:history.go(-1);">{% trans "Back" %}</a>
 			</div>
 		</div>
 	</form>

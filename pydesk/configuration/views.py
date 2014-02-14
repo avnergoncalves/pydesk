@@ -22,9 +22,7 @@ def enterprise_list(request):
 
 @login_required
 def enterprise_add(request):
-    form = EnterpriseForm()
-
-    return render(request, 'enterprise/enterprise_add.html', {'form': form})
+    return render(request, 'enterprise/enterprise_add.html', {'form': EnterpriseForm()})
 
 
 @login_required
@@ -39,7 +37,24 @@ def enterprise_edit(request):
 
 @login_required
 def enterprise_ajax_list(request):
-    return render(request, 'enterprise/ajax_enterprise_list.html', {})
+    
+    if request.is_ajax():
+        params_grid = {}
+        params_grid['limite'] = request.GET.get('limite', 50)
+        params_grid['pagina'] = request.GET.get('pagina', 1)
+        params_grid['order'] = request.GET.get('order', '1 ASC')
+
+        filters = {}
+        filters['rasao_social'] = request.GET.get('rasao_social', '')
+        filters['nome_fantasia'] = request.GET.get('nome_fantasia', '')
+
+        model = Enterprise()
+        grid = model.consult_grid(filters, params_grid)
+
+        return HttpResponse(json.dumps(grid), mimetype='application/json')
+
+    else:
+        raise Http404
 
 
 @login_required
@@ -58,6 +73,17 @@ def enterprise_ajax_save(request):
             data = {'status': '1', 'message': [message]}
         else:
             data = {'status': '0', 'errors': form.errors}
+
+        return HttpResponse(json.dumps(data), mimetype='application/json')
+    else:
+        raise Http404
+
+@login_required
+def enterprise_ajax_toogle_status(request):
+    if request.method == 'POST' and request.is_ajax():
+
+        message = unicode(_('Operation successful.'))
+        data = {'status': '1', 'message': [message]}
 
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:
