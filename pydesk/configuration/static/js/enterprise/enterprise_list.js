@@ -4,8 +4,8 @@ $(function() {
 			{
 				url : "/configuration/enterprise/ajax/list",
 				data:{
-					rasao_social: $('#filter_enterprise'),
-					nome_fantasia: $('#filter_enterprise')
+					find_enterprise: $('#find_enterprise'),
+					status_enterprise: $('#status_enterprise')
 				},
 				colluns : [
 						{
@@ -51,23 +51,37 @@ $(function() {
 						} ]
 			});
 	
-	$('#filter_enterprise').keyup(function(e){
-		if(e.keyCode == 13){
+	$('#status_enterprise').change(function(e){
+		$('#grid_list_enterprise').grid().reload({consultar:true});
+	});
+	
+	$('#find_enterprise').keyup(function(e){
+		autocomplete(this.value.length, 3, function(){
 			$('#grid_list_enterprise').grid().reload({consultar:true});
-		}
+		});
 	});
 	
 	$('#btn_active').on('click', function(){
+		$('#hdd_status').val('1');
 		
-		$('#ipt_status').val('A');
+		console.log($('#form_list_enterprise').serialize());
 		
 		$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
 		 .done(function(response){
 			 if(response.status == '1'){
-				var id = $('#id_id').val();
-				if(id == ''){
-					clear_form('#form_enterprise');
-				}
+				$('#grid_list_enterprise').grid().reload({consultar:true});
+			 }
+		 }
+		);
+	});
+	
+	$('#btn_inative').on('click', function(){
+		$('#hdd_status').val('0');
+		
+		$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+		 .done(function(response){
+			 if(response.status == '1'){
+				$('#grid_list_enterprise').grid().reload({consultar:true});
 			 }
 		 }
 		);

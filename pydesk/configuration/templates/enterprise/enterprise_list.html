@@ -27,17 +27,17 @@
 		</div>
 		
 		<div style="float:right;">
-			<input type="text" value="" id="filter_enterprise"/>
-			<select>
+			<input type="text" value="" id="find_enterprise"/>
+			<select id="status_enterprise">
+				<option value="1">Ativo</option>
+				<option value="0">Inativo</option>
 				<option value="">Todos</option>
-				<option value="A">Ativo</option>
-				<option value="I">Inativo</option>
 			</select>
 		</div>
 	</div>
 	
 	<form id="form_list_enterprise" action="" method="post">
-		<input type="hidden" value="" name="ipt_status" id="ipt_status">
+		<input type="hidden" value="" name="hdd_status" id="hdd_status">
 		{% csrf_token %}
 		<div class="grid-consulta" id="grid_list_enterprise"></div>
 	</form>

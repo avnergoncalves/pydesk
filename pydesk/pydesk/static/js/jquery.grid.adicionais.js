@@ -149,7 +149,7 @@ $.grid.setDefaults({
 					var input  = document.createElement('input');
 					input.setAttribute('type', evento);
 					input.setAttribute('value', response.value);
-					input.setAttribute('name', 'checkbox[]');
+					input.setAttribute('name', 'checkboxs');
 					
 					input.onclick = function(){func_acoes[evento](response.value, row_id);};
 					

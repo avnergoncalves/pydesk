@@ -15,6 +15,7 @@ class Enterprise(models.Model):
     inscricao_estadual = models.CharField(max_length=100, blank=True)
     endereco = models.CharField(max_length=100, blank=True)
     observacao = models.CharField(max_length=1024, blank=True)
+    status = models.BooleanField(blank=False)
     
     def consult_grid(self, filters, params_grid):
         map_order = {'2': 'rasao_social', '3': 'nome_fantasia', '4': 'cnpj'}
@@ -26,8 +27,17 @@ class Enterprise(models.Model):
         order_s = order.replace('DESC', '-').replace('ASC', '').split(' ')
         order_f = order_s[1]+map_order.get(order_s[0], 'rasao_social')
         
-        query = Enterprise.objects.extra(where=['rasao_social LIKE %s OR nome_fantasia LIKE %s'], 
-                                         params=['%'+filters['rasao_social']+'%', '%'+filters['nome_fantasia']+'%']).order_by(order_f)
+        status = filters['status_enterprise']
+        find = '%'+filters['find_enterprise']+'%'
+        
+        where = ['rasao_social LIKE %s OR nome_fantasia LIKE %s OR cnpj LIKE %s OR endereco LIKE %s']
+        params = [find,find,find,find]
+        
+        if status != '':
+            where.append('status = %s')
+            params.append(status)
+        
+        query = Enterprise.objects.extra(where=where, params=params).order_by(order_f)
 
         offset = (pagina-1)*limite
         result = query[offset:limite]

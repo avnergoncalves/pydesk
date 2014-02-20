@@ -98,4 +98,15 @@ function clear_form(form) {
       else if (tag == 'select')
         this.selectedIndex = -1;
     });
-  };
+}
+
+var timeoutId
+function autocomplete(string_length, min_string_length, func)
+{
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function () {
+    	if(string_length >=  min_string_length || string_length == 0){
+    		func();
+    	}
+     }, 400);
+}

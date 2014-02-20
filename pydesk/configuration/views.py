@@ -45,8 +45,8 @@ def enterprise_ajax_list(request):
         params_grid['order'] = request.GET.get('order', '1 ASC')
 
         filters = {}
-        filters['rasao_social'] = request.GET.get('rasao_social', '')
-        filters['nome_fantasia'] = request.GET.get('nome_fantasia', '')
+        filters['find_enterprise'] = request.GET.get('find_enterprise', '')
+        filters['status_enterprise'] = request.GET.get('status_enterprise', '')
 
         model = Enterprise()
         grid = model.consult_grid(filters, params_grid)
@@ -81,6 +81,14 @@ def enterprise_ajax_save(request):
 @login_required
 def enterprise_ajax_toogle_status(request):
     if request.method == 'POST' and request.is_ajax():
+        
+        checkboxs = request.POST.getlist('checkboxs', [])
+        status = int(request.POST.get('hdd_status', 0))
+        
+        for i in checkboxs:
+            e = get_object_or_404(Enterprise, pk=i)
+            e.status = status
+            e.save()
 
         message = unicode(_('Operation successful.'))
         data = {'status': '1', 'message': [message]}
