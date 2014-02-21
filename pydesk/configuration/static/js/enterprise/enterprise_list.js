@@ -9,7 +9,7 @@ $(function() {
 				},
 				colluns : [
 						{
-							name : '<input type="checkbox" />',
+							name : '<input type="checkbox" id="chk_all" />',
 							th : {'width' : "5%"},
 							td : {'align' : "left"},
 							order : false,
@@ -62,29 +62,29 @@ $(function() {
 	});
 	
 	$('#btn_active').on('click', function(){
-		$('#hdd_status').val('1');
-		
-		console.log($('#form_list_enterprise').serialize());
-		
-		$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
-		 .done(function(response){
-			 if(response.status == '1'){
-				$('#grid_list_enterprise').grid().reload({consultar:true});
+		if(confirm('Deseja ativar os itens selecionados ?')){
+			$('#hdd_status').val('1');
+			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			 .done(function(response){
+				 if(response.status == '1'){
+					$('#grid_list_enterprise').grid().reload({consultar:true});
+				 }
 			 }
-		 }
-		);
+			);
+		}
 	});
 	
 	$('#btn_inative').on('click', function(){
-		$('#hdd_status').val('0');
-		
-		$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
-		 .done(function(response){
-			 if(response.status == '1'){
-				$('#grid_list_enterprise').grid().reload({consultar:true});
+		if(confirm('Deseja inativar os itens selecionados ?')){
+			$('#hdd_status').val('0');
+			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			 .done(function(response){
+				 if(response.status == '1'){
+					$('#grid_list_enterprise').grid().reload({consultar:true});
+				 }
 			 }
-		 }
-		);
+			);
+		}
 	});
 
 });

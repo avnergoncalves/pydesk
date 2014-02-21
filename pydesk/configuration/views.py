@@ -83,15 +83,29 @@ def enterprise_ajax_toogle_status(request):
     if request.method == 'POST' and request.is_ajax():
         
         checkboxs = request.POST.getlist('checkboxs', [])
-        status = int(request.POST.get('hdd_status', 0))
+        status = int(request.POST.get('hdd_status', None))
         
-        for i in checkboxs:
-            e = get_object_or_404(Enterprise, pk=i)
-            e.status = status
-            e.save()
+        message = []
+        erro = False
 
-        message = unicode(_('Operation successful.'))
-        data = {'status': '1', 'message': [message]}
+        if status == None:
+            message.append(unicode(_('Undefined stats')))
+            erro = True
+
+        if len(checkboxs) == 0:
+            message.append(unicode(_('Nenhum item foi selecionado')))
+            erro = True
+
+        if not erro:
+            for i in checkboxs:
+                e = get_object_or_404(Enterprise, pk=i)
+                e.status = status
+                e.save()
+
+                message.append(unicode(_('Operation successful.')))
+                data = {'status': '1', 'message': message}
+        else:
+            data = {'status': '0', 'errors': {'__all__':message}}
 
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:

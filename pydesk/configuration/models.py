@@ -28,7 +28,7 @@ class Enterprise(models.Model):
         order_f = order_s[1]+map_order.get(order_s[0], 'rasao_social')
         
         status = filters['status_enterprise']
-        find = '%'+filters['find_enterprise']+'%'
+        find = '%'+filters['find_enterprise'].replace("\\","\\\\")+'%'
         
         where = ['rasao_social LIKE %s OR nome_fantasia LIKE %s OR cnpj LIKE %s OR endereco LIKE %s']
         params = [find,find,find,find]
@@ -50,7 +50,9 @@ class Enterprise(models.Model):
                           '3': i.nome_fantasia,
                           '4': i.cnpj,
                           '5': {'value': i.id, 'events': 'editar'},
-                          '6': {'icon': 'ativo'}} )
+                          '6': {'icon': 'ativo'} if i.status else {'icon': 'inativo'}
+                          }
+                        )
 
         grid = {}
         grid['data'] = data

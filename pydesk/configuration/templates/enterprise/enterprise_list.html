@@ -21,6 +21,8 @@
 
 <div class="conteudo"> 
 	
+	<div class="message"></div>
+	
 	<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;border-bottom:1px solid #EEEEEE;">
 		<div class="btn-group">
 			<a class="btn-1" id="btn_active" href="javascript:;">{% trans "Active"%}</a><a class="btn-1" id="btn_inative" href="javascript:;">{% trans "Inative"%}</a>
@@ -33,8 +35,9 @@
 				<option value="0">Inativo</option>
 				<option value="">Todos</option>
 			</select>
-		</div>
+		</div>	
 	</div>
+	
 	
 	<form id="form_list_enterprise" action="" method="post">
 		<input type="hidden" value="" name="hdd_status" id="hdd_status">

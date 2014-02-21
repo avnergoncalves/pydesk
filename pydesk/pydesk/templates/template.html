@@ -1,4 +1,4 @@
-{% load staticfiles %} {% load i18n %}
+{% load staticfiles %} {% load i18n %}  {% load ifappexists %} {% load navigation %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -18,7 +18,7 @@
 		<script src="{% static 'js/jquery.grid.js' %}" type="text/javascript"></script>
 		<script src="{% static 'js/jquery.grid.adicionais.js' %}" type="text/javascript"></script>
 		
-		<script src="{% static 'js/pydesk-general.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/general.js' %}" type="text/javascript"></script>
 
 		{% block header %}{% endblock %}
 	</head>
@@ -27,38 +27,77 @@
 		<div class="geral">
 			<div class="cabecalho"></div>
 			
-			{% if user.is_authenticated %}
+			
 				<div class="conteudo-menu">
 					<ul class="menu">
-						<li class="ativo"><a href="{% url 'dashboard.views.home' %}">{% trans "Dashboards" %}</a></li>
-	
-						<li><a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a> 
+
+						{% ifappexists 'dashboard' %}
+							{% url 'dashboard.views.home' as the_url %}
+							{% if the_url%}
+								<li class="{% current 'home' %}"><a href="{{ the_url }}">{% trans "Dashboards" %}</a></li>
+							{% endif %}
+						{% endifappexists %}
+
+						{% ifappexists 'service' %}
+							<li>
+								<a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+								<ul class="submenu">
+									<li><a href="servico_solicitar.htm">{% trans "Request Services" %}</a></li>
+									<li><a href="servico_consultar.htm">{% trans "Consult Services" %}</a></li>
+								</ul>
+							</li>
+						{% endifappexists %}
+
+						{% ifappexists 'configuration' %}
+						<li>
+							<a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 							<ul class="submenu">
-								<li><a href="servico_solicitar.htm">{% trans "Request Services" %}</a></li>
-								<li><a href="servico_consultar.htm">{% trans "Consult Services" %}</a></li>
+								{% url 'configuration.views.enterprise_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Enterprises" %}</a></li>
+								{% endif %}
+								
+								{% url 'configuration.views.user_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Users" %}</a></li>
+								{% endif %}
+								
+								{% url 'configuration.views.configuration_item_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Configuration Items(CI's)" %}</a></li>
+								{% endif %}
+
+								{% url 'configuration.views.contract_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Contracts" %}</a></li>
+								{% endif %}
+								
+								{% url 'configuration.views.sla_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Sla's" %}</a></li>
+								{% endif %}
+								
+								{% url 'configuration.views.post_list' as the_url %}
+								{% if the_url %}
+									<li><a href="{{ the_url }}">{% trans "Manage Post's" %}</a></li>
+								{% endif %}
 							</ul>
 						</li>
-	
-						<li><a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
-							<ul class="submenu">
-								<li><a href="{% url 'configuration.views.enterprise_list' %}">{% trans "Manage Enterprises" %}</a></li>	
-								<li><a href="configuracao_consultar-usuario.htm">{% trans "Manage Users" %}</a></li>
-								<li><a href="configuracao_consultar-item_de_configuracao.htm">{% trans "Manage Configuration Items(CI's)" %}</a></li>
-								<li><a href="">{% trans "Manage Contracts" %}</a></li>
-								<li><a href="">{% trans "Manage Sla's" %}</a></li>
-								<li><a href="">{% trans "Manage Post's" %}</a></li>
-							</ul>
-						</li>
-	
-						<li><a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+						{% endifappexists %}
+
+						{% ifappexists 'financial' %}
+						<li>
+							<a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 							<ul class="submenu">
 								<li><a href="">{% trans "Closing" %}</a></li>
 							</ul>
 						</li>
+						{% endifappexists %}
+
 						<li><a href="{% url 'accounts.views.logout' %}">{% trans "Logout" %}</a></li>
 					</ul>
 				</div>
-			{% endif %}
+			
 
 			{% block body %}{% endblock %}
 

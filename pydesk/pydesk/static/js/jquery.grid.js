@@ -130,7 +130,7 @@
 								}
 							},
 							limite : 50,
-							cache_url : false,
+							cache_url : true,
 							cache_cookie : true,
 							url : false,
 							success : false,

@@ -33,6 +33,10 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
