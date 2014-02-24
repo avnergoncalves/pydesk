@@ -113,8 +113,8 @@ def enterprise_ajax_toogle_status(request):
 
 
 @login_required
-def user(request):
-    return render(request, 'home/home.html', {})
+def user_list(request):
+    return render(request, 'user/user_list.html', {})
 
 
 @login_required
