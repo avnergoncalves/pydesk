@@ -15,7 +15,7 @@ class Enterprise(models.Model):
     inscricao_estadual = models.CharField(max_length=100, blank=True)
     endereco = models.CharField(max_length=100, blank=True)
     observacao = models.CharField(max_length=1024, blank=True)
-    status = models.BooleanField(blank=False)
+    status = models.BooleanField(blank=False, default=True)
     
     def consult_grid(self, filters, params_grid):
         map_order = {'2': 'rasao_social', '3': 'nome_fantasia', '4': 'cnpj'}
