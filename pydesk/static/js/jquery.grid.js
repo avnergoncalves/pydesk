@@ -128,7 +128,7 @@
 									"class" : "jquery-grid-paginacao"
 								}
 							},
-							limite : 50,
+							limite : 10,
 							cache_url : true,
 							cache_cookie : true,
 							url : false,
