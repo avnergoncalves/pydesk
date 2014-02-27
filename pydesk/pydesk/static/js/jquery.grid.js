@@ -83,11 +83,10 @@
 
 		if (value) {
 			params = {};
-			var pieces = value.split('&'), pair, i, l;
+			var pieces = value.split(/&(?=\w+=)/), pair, i, l;
 			for (i = 0, l = pieces.length; i < l; i++) {
 				pair = pieces[i].split('=', 2);
-				params[pair[0]] = (pair.length == 2 ? pair[1].replace(/\+/g,
-						' ') : true);
+				params[pair[0]] = (pair.length == 2 ? decodeURIComponent(pair[1].replace(/\+/g,' ')) : true);
 			}
 		}
 		return params;
@@ -168,21 +167,18 @@
 
 								this.element.html(table);
 
-								var hash = (this.settings.cache_url || this.settings.cache_cookie) ? $
-										.unparam(window.location.hash
-												.substring(1))
-										: {};
-
+								var hash = (this.settings.cache_url || this.settings.cache_cookie) ? $.unparam(window.location.hash.substring(1)) : {};
+								
 								/*recupera do cookie*/
 								if (hash.grid) {
 									cookieSer = $.cookie.ler(this.namespace);
-
+									
 									if (cookieSer) {
 										hash = $.unparam(cookieSer);
 									}
-
+									
 									if (this.settings.cache_url) {
-										window.location.hash = cookieSer;
+										//window.location.hash = cookieSer;
 									}
 								}
 								/*recupera do cookie*/
@@ -196,7 +192,7 @@
 														'limite', 'order' ]) == -1
 												&& this.settings.data[i]) {
 											this.settings.data[i]
-													.val(decodeURIComponent(hash[i]));
+													.val(hash[i]);
 										}
 									}
 									/*popula inputs da pagina*/
@@ -222,19 +218,18 @@
 							},
 
 							reload : function(data) {
+
 								if (data && typeof data.pagina == 'undefined') {
 									for (i in this.settings.data) {
 										if (typeof this.settings.data[i].val() != 'undefined'
 												&& this.settings.data[i].val() != ''
 												&& this.settings.data[i]
 														.attr('disabled') != 'disabled') {
-											this.objDataCache[i] = unescape(this.settings.data[i]
-													.val());
+											this.objDataCache[i] = this.settings.data[i].val();
 										} else {
 											delete this.objDataCache[i];
 										}
 									}
-
 									this.objDataCache.pagina = 1;
 								}
 
@@ -243,21 +238,18 @@
 								} else if (!this.objDataCache.pagina) {
 									this.objDataCache.pagina = 1;
 								}
-
-								this.objDataCache.limite = (data && data.limite) ? data.limite
-										: this.settings.limite;
-								this.objDataCache.order = this.__detectOrder(
-										data, this.objDataCache);
-
+								
+								this.objDataCache.limite = (data && data.limite) ? data.limite: this.settings.limite;
+								this.objDataCache.order = this.__detectOrder(data, this.objDataCache);
+								
 								this.__renderGrid();
 							},
 
 							__renderGrid : function() {
 								var that = this;
-
-								var dataSerialized = this
-										.__setStorage(this.objDataCache);
-
+								
+								var dataSerialized = this.__setStorage(this.objDataCache);
+								
 								if (!$.isFunction(this.settings.url)
 										&& this.settings.url != false) {
 
@@ -549,6 +541,8 @@
 							},
 
 							__setStorage : function(objData) {
+
+								console.log(objData);
 
 								var dataSer = jQuery.param(objData);
 
