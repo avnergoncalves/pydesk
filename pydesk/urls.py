@@ -8,6 +8,8 @@ Created on Feb 6, 2014
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -17,3 +19,5 @@ urlpatterns = patterns('',
      url(r'^dashboard', include('dashboard.urls')),
      url(r'^configuration', include('configuration.urls')),
 )
+
+urlpatterns += staticfiles_urlpatterns()
