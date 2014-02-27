@@ -33,7 +33,7 @@ class Enterprise(models.Model):
         where = ['rasao_social LIKE %s OR nome_fantasia LIKE %s OR cnpj LIKE %s OR endereco LIKE %s']
         params = [find,find,find,find]
         
-        if status != '':
+        if status != '-1':
             where.append('status = %s')
             params.append(status)
         
