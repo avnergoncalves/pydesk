@@ -110,8 +110,7 @@ DATABASES = {
             'NAME': 'd7ag24r5r2b25a',
             'USER': 'gdakicwpzlalzf',
             'PASSWORD': 'Q6MPhn6KJcO1qXyaw-oIOudGRY',
-            'PORT': '5432',
-            'OPTIONS': {"init_command": "SET storage_engine=INNODB"}
+            'PORT': '5432'
     }
 }
 
