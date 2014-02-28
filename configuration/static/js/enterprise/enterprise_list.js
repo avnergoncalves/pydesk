@@ -44,7 +44,7 @@ $(function() {
 							}
 						},
 						{
-							name : "Status",
+							name : "Ativo",
 							order : false,
 							th : {'width' : "5%"},
 							icone : {'ativo': 'icone-preto ui-icon-check', 'inativo': 'icone-preto ui-icon-closethick'}
@@ -63,7 +63,7 @@ $(function() {
 	
 	$('#btn_active').on('click', function(){
 		if(confirm('Deseja ativar os itens selecionados ?')){
-			$('#hdd_status').val('1');
+			$('#hdd_is_active').val('1');
 			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
@@ -76,7 +76,7 @@ $(function() {
 	
 	$('#btn_inative').on('click', function(){
 		if(confirm('Deseja inativar os itens selecionados ?')){
-			$('#hdd_status').val('0');
+			$('#hdd_is_active').val('0');
 			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){

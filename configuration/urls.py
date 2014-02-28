@@ -16,4 +16,6 @@ urlpatterns = patterns('configuration.views',
      url(r'^/enterprise/ajax/toogle_status[/]?$', 'enterprise_ajax_toogle_status', name='enterprise_ajax_toogle_status'),
 
      url(r'^/user/list[/]?$', 'user_list', name='user_list'),
+     url(r'^/user/add[/]?$', 'user_add', name='user_add'),
+     url(r'^/user/ajax/list[/]?$', 'user_ajax_list', name='user_ajax_list'),
 )

@@ -541,9 +541,6 @@
 							},
 
 							__setStorage : function(objData) {
-
-								console.log(objData);
-
 								var dataSer = jQuery.param(objData);
 
 								if (this.settings.cache_url) {
