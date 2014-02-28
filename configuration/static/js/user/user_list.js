@@ -5,7 +5,7 @@ $(function() {
 				url : "/configuration/user/ajax/list",
 				data:{
 					find_user: $('#find_user'),
-					status_user: $('#status_user')
+					is_active: $('#is_active')
 				},
 				colluns : [
 						{
@@ -20,18 +20,30 @@ $(function() {
 							}
 						},
 						{
-							name : "Razão Social",
-							th : {'width' : "35%"},
+							name : "Primeiro Nome",
+							th : {'width' : "20%"},
 							td : {'align' : "left"}
 						},
 						{
-							name : "Nome Fantasia",
-							th : {'width' : "30%"},
+							name : "Segundo Nome",
+							th : {'width' : "20%"},
 							td : {'align' : "left"}
 						},
 						{
-							name : "CNPJ",
-							th : {'width' : "20%"}
+							name : "E-mail",
+							th : {'width' : "15%"}
+						},
+						{
+							name : "Telefone",
+							th : {'width' : "10%"}
+						},
+						{
+							name : "Celular",
+							th : {'width' : "10%"}
+						},
+						{
+							name : "Empresa",
+							th : {'width' : "10%"}
 						},
 						{
 							name : "Editar",

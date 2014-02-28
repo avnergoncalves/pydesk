@@ -11,7 +11,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from configuration.forms import EnterpriseForm
 from django.http.response import HttpResponse, Http404
-from configuration.models import Enterprise
+from configuration.models import Enterprise, UserProfile
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -83,12 +83,12 @@ def enterprise_ajax_toogle_status(request):
     if request.method == 'POST' and request.is_ajax():
         
         checkboxs = request.POST.getlist('checkboxs', [])
-        status = int(request.POST.get('hdd_status', None))
+        is_active = int(request.POST.get('hdd_is_active', None))
         
         message = []
         erro = False
 
-        if status == None:
+        if is_active == None:
             message.append(unicode(_('Undefined stats')))
             erro = True
 
@@ -99,7 +99,7 @@ def enterprise_ajax_toogle_status(request):
         if not erro:
             for i in checkboxs:
                 e = get_object_or_404(Enterprise, pk=i)
-                e.status = status
+                e.is_active = is_active
                 e.save()
 
                 message.append(unicode(_('Operation successful.')))
@@ -118,8 +118,29 @@ def user_list(request):
 
 
 @login_required
-def ajax_user_list(request):
-    return render(request, 'home/home.html', {})
+def user_add(request):
+    return render(request, 'user/user_add.html', {})
+
+
+@login_required
+def user_ajax_list(request):
+    if request.is_ajax():
+        params_grid = {}
+        params_grid['limite'] = request.GET.get('limite', 50)
+        params_grid['pagina'] = request.GET.get('pagina', 1)
+        params_grid['order'] = request.GET.get('order', '1 ASC')
+
+        filters = {}
+        filters['find_user'] = request.GET.get('find_user', '')
+        filters['is_active'] = request.GET.get('is_active', '')
+
+        model = UserProfile()
+        grid = model.consult_grid(filters, params_grid)
+
+        return HttpResponse(json.dumps(grid), mimetype='application/json')
+
+    else:
+        raise Http404
 
 
 @login_required
