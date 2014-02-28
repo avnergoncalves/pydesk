@@ -90,7 +90,7 @@ class UserProfile(models.Model):
         status = filters['is_active']
         find = '%'+filters['find_user'].replace("\\","\\\\")+'%'
         
-        where = ['first_name LIKE %s OR last_name LIKE %s OR email LIKE %s OR email LIKE %s']
+        where = ['first_name LIKE %s OR last_name LIKE %s OR email LIKE %s OR email LIKE %s', 'is_superuser = 0']
         params = [find,find,find,find]
         
         if status != '-1':

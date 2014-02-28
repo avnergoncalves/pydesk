@@ -63,7 +63,7 @@ $(function() {
 						} ]
 			});
 	
-	$('#status_user').change(function(e){
+	$('#is_active').change(function(e){
 		$('#grid_list_user').grid().reload({consultar:true});
 	});
 	
