@@ -7,6 +7,7 @@ Created on Feb 6, 2014
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import pre_save
 
 
 class Enterprise(models.Model):

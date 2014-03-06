@@ -7,12 +7,14 @@ Created on Feb 6, 2014
 
 import json
 
+from django.utils.translation import ugettext_lazy as _
+from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from configuration.forms import EnterpriseForm
-from django.http.response import HttpResponse, Http404
+
+from configuration.forms import EnterpriseForm, UserCreateForm
 from configuration.models import Enterprise, UserProfile
-from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
 
 
 @login_required
@@ -119,7 +121,7 @@ def user_list(request):
 
 @login_required
 def user_add(request):
-    return render(request, 'user/user_add.html', {})
+    return render(request, 'user/user_add.html', {'form': UserCreateForm()})
 
 
 @login_required
@@ -144,5 +146,22 @@ def user_ajax_list(request):
 
 
 @login_required
-def ajax_user_salve(request):
-    return render(request, 'home/home.html', {})
+def user_ajax_save(request):
+    if request.method == 'POST' and request.is_ajax():
+        e = None
+        pk = request.POST.get('id', None)
+        if pk:
+            e = get_object_or_404(User, pk=pk)
+
+        form = UserCreateForm(request.POST, instance=e)
+        if form.is_valid():
+            form.save()
+
+            message = unicode(_('Operation successful.'))
+            data = {'status': '1', 'message': [message]}
+        else:
+            data = {'status': '0', 'errors': form.errors}
+
+        return HttpResponse(json.dumps(data), mimetype='application/json')
+    else:
+        raise Http404

@@ -6,10 +6,19 @@ Created on Feb 6, 2014
 '''
 
 from django.utils.translation import ugettext_lazy as _
-from django.forms import ModelForm, Textarea, HiddenInput, TextInput, IntegerField
-from configuration.models import Enterprise
+from django.forms import ModelForm, Textarea, HiddenInput, TextInput, IntegerField, EmailField, CharField
+from configuration.models import Enterprise, UserProfile
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.forms.models import ModelChoiceField
 
+##CUSTON FIELDS
+class EnterpriseModelChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return obj.rasao_social
 
+##FORMS
 class EnterpriseForm(ModelForm):
     id = IntegerField(widget=HiddenInput, required=False)
     
@@ -32,3 +41,32 @@ class EnterpriseForm(ModelForm):
             'endereco': _('Address'),
             'observacao': _('Observation'),
         }
+
+
+class UserCreateForm(UserCreationForm):
+    first_name = CharField(required=True)
+    last_name = CharField(required=True)
+    email = EmailField(required=True)
+
+    enterprise = EnterpriseModelChoiceField(queryset=Enterprise.objects.all())
+
+    class Meta:
+        model = User
+        fields = ( "username", "first_name", "last_name", "email", "enterprise" )
+
+
+    def save(self, commit=True):
+        user = super(UserCreationForm, self).save(commit=False)
+        
+        try:
+            user_profile = user.get_profile()
+        except ObjectDoesNotExist:
+            user_profile = UserProfile(user=user)
+
+        user_profile.enterprise_id = self.cleaned_data['enterprise']
+        #user_profile.url = self.cleaned_data['url']
+        
+        if commit:
+            user.save()
+            user_profile.save()
+        return user
