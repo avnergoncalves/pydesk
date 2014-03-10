@@ -57,7 +57,7 @@ class UserCreateForm(UserCreationForm):
 
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
-        
+
         try:
             user_profile = user.get_profile()
         except ObjectDoesNotExist:
@@ -65,7 +65,7 @@ class UserCreateForm(UserCreationForm):
 
         user_profile.enterprise_id = self.cleaned_data['enterprise']
         #user_profile.url = self.cleaned_data['url']
-        
+
         if commit:
             user.save()
             user_profile.save()

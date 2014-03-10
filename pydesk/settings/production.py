@@ -44,6 +44,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+#Model Profile
+AUTH_PROFILE_MODULE = "configuration.UserProfile"
 
 # Application definition
 
