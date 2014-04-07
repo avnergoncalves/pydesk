@@ -1,5 +1,7 @@
-PyDesk - Free service desk system
+PyDesk
 ======
+
+Free service desk system
 
 Description
 --------------------------------------
