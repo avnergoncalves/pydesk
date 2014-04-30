@@ -35,6 +35,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -45,11 +46,12 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "pydesk.configuration.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.enterprise.UserProfile"
 
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -58,7 +60,8 @@ INSTALLED_APPS = (
     'pydesk.core',
     'pydesk.accounts',
     'pydesk.dashboard',
-    'pydesk.configuration',
+    'pydesk.enterprise',
+    'pydesk.user',
 )
 
 MIDDLEWARE_CLASSES = (

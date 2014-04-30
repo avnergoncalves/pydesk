@@ -533,3 +533,16 @@ span.observacao{
 	width:500px;
 	height:100px;
 }
+
+.ui-icon-triangle-1-s {
+	background-position: -64px -16px
+}
+.ui-icon-plus {
+	background-position: -16px -128px
+}
+.ui-icon-pencil {
+	background-position: -64px -112px
+}
+.ui-icon-check {
+	background-position: -64px -144px
+}

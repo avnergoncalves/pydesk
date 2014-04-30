@@ -1,11 +1,11 @@
 $(function() {
 
-	$("#grid_list_enterprise").grid(
+	$("#grid_list_user").grid(
 			{
-				url : "/configuration/enterprise/ajax/list",
+				url : "/user/ajax/list",
 				data:{
-					find_enterprise: $('#find_enterprise'),
-					status_enterprise: $('#status_enterprise')
+					find_user: $('#find_user'),
+					is_active: $('#is_active')
 				},
 				colluns : [
 						{
@@ -20,18 +20,30 @@ $(function() {
 							}
 						},
 						{
-							name : "Razão Social",
-							th : {'width' : "35%"},
+							name : "Primeiro Nome",
+							th : {'width' : "20%"},
 							td : {'align' : "left"}
 						},
 						{
-							name : "Nome Fantasia",
-							th : {'width' : "30%"},
+							name : "Segundo Nome",
+							th : {'width' : "20%"},
 							td : {'align' : "left"}
 						},
 						{
-							name : "CNPJ",
-							th : {'width' : "20%"}
+							name : "E-mail",
+							th : {'width' : "15%"}
+						},
+						{
+							name : "Telefone",
+							th : {'width' : "10%"}
+						},
+						{
+							name : "Celular",
+							th : {'width' : "10%"}
+						},
+						{
+							name : "Empresa",
+							th : {'width' : "10%"}
 						},
 						{
 							name : "Editar",
@@ -39,35 +51,35 @@ $(function() {
 							th : {'width' : "5%"},
 							acoes : {
 								"editar" : function(res, row_id) {
-									window.location.href = "/configuration/enterprise/edit?id=" + res;
+									window.location.href = "/user/edit?id=" + res;
 								}
 							}
 						},
 						{
-							name : "Ativo",
+							name : "Status",
 							order : false,
 							th : {'width' : "5%"},
 							icone : {'ativo': 'icone-preto ui-icon-check', 'inativo': 'icone-preto ui-icon-closethick'}
 						} ]
 			});
 	
-	$('#status_enterprise').change(function(e){
-		$('#grid_list_enterprise').grid().reload({consultar:true});
+	$('#is_active').change(function(e){
+		$('#grid_list_user').grid().reload({consultar:true});
 	});
 	
-	$('#find_enterprise').keyup(function(e){
+	$('#find_user').keyup(function(e){
 		autocomplete(this.value.length, 3, function(){
-			$('#grid_list_enterprise').grid().reload({consultar:true});
+			$('#grid_list_user').grid().reload({consultar:true});
 		});
 	});
 	
 	$('#btn_active').on('click', function(){
 		if(confirm('Deseja ativar os itens selecionados ?')){
-			$('#hdd_is_active').val('1');
-			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			$('#hdd_status').val('1');
+			$.post("/user/ajax/toogle_status", $('#form_list_user').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
-					$('#grid_list_enterprise').grid().reload({consultar:true});
+					$('#grid_list_user').grid().reload({consultar:true});
 				 }
 			 }
 			);
@@ -76,11 +88,11 @@ $(function() {
 	
 	$('#btn_inative').on('click', function(){
 		if(confirm('Deseja inativar os itens selecionados ?')){
-			$('#hdd_is_active').val('0');
-			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			$('#hdd_status').val('0');
+			$.post("/user/ajax/toogle_status", $('#form_list_user').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
-					$('#grid_list_enterprise').grid().reload({consultar:true});
+					$('#grid_list_user').grid().reload({consultar:true});
 				 }
 			 }
 			);

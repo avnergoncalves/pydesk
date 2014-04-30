@@ -24,7 +24,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates')
+    os.path.join(BASE_DIR, 'core/templates')
 )
 
 TEMPLATE_LOADERS = (
@@ -35,6 +35,7 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -45,20 +46,22 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "configuration.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.enterprise.UserProfile"
 
 # Application definition
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pydesk',
-    'accounts',
-    'dashboard',
-    'configuration',
+    'pydesk.core',
+    'pydesk.accounts',
+    'pydesk.dashboard',
+    'pydesk.enterprise',
+    'pydesk.user',
 )
 
 MIDDLEWARE_CLASSES = (

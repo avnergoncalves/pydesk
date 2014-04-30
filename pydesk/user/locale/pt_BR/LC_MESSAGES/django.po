@@ -1,0 +1,51 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-12 15:58-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: forms.py:28
+msgid "Corporate Name"
+msgstr "Razão Social"
+
+#: forms.py:29
+msgid "Fantasy Name"
+msgstr "Nome Fantasia"
+
+#: forms.py:30
+msgid "CNPJ"
+msgstr "CNPJ"
+
+#: forms.py:31
+msgid "State Registration"
+msgstr "Inscrição Estadual"
+
+#: forms.py:32
+msgid "Address"
+msgstr "Endereço"
+
+#: forms.py:33
+msgid "Observation"
+msgstr "Observação"
+
+#: views.py:57
+msgid "Operation successful."
+msgstr "Operação realizada com sucesso."
+
+#: templates/enterprise/enterprise_add.html:14
+msgid "Register Enterprise"
+msgstr "Cadastrar Empresa"

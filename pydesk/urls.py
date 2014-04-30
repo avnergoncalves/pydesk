@@ -17,7 +17,10 @@ urlpatterns = patterns('',
 
      url(r'^accounts', include('pydesk.accounts.urls')),
      url(r'^dashboard', include('pydesk.dashboard.urls')),
-     url(r'^configuration', include('pydesk.configuration.urls')),
+     url(r'^enterprise', include('pydesk.enterprise.urls')),
+     url(r'^user', include('pydesk.user.urls')),
+     
+     url(r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += staticfiles_urlpatterns()
