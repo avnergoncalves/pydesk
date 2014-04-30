@@ -13,11 +13,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 admin.autodiscover()
 
 urlpatterns = patterns('',
-     url(r'^$', 'accounts.views.login', name='login'),
+     url(r'^$', 'pydesk.accounts.views.login', name='login'),
 
-     url(r'^accounts', include('accounts.urls')),
-     url(r'^dashboard', include('dashboard.urls')),
-     url(r'^configuration', include('configuration.urls')),
+     url(r'^accounts', include('pydesk.accounts.urls')),
+     url(r'^dashboard', include('pydesk.dashboard.urls')),
+     url(r'^configuration', include('pydesk.configuration.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

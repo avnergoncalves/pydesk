@@ -12,8 +12,8 @@ from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-from configuration.forms import EnterpriseForm, UserCreateForm
-from configuration.models import Enterprise, UserProfile
+from pydesk.configuration.forms import EnterpriseForm, UserForm
+from pydesk.configuration.models import Enterprise, UserProfile
 from django.contrib.auth.models import User
 
 
@@ -121,7 +121,8 @@ def user_list(request):
 
 @login_required
 def user_add(request):
-    return render(request, 'user/user_add.html', {'form': UserCreateForm()})
+    return render(request, 'user/user_add.html', {'form_user': UserForm(), 
+                                                  'form_relationships':''})
 
 
 @login_required
@@ -153,14 +154,19 @@ def user_ajax_save(request):
         if pk:
             e = get_object_or_404(User, pk=pk)
 
-        form = UserCreateForm(request.POST, instance=e)
-        if form.is_valid():
-            form.save()
+        form1 = UserForm(request.POST, instance=e)
+        form2 = UserForm(request.POST, instance=e)
+        
+        is_valid_form1 = form1.is_valid()
+        is_valid_form2 = form2.is_valid()
+        
+        if is_valid_form1 and is_valid_form2:
+            form1.save()
 
             message = unicode(_('Operation successful.'))
             data = {'status': '1', 'message': [message]}
         else:
-            data = {'status': '0', 'errors': form.errors}
+            data = {'status': '0', 'errors': form1.errors+form2.errors}
 
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:

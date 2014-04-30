@@ -18,14 +18,11 @@
 
 <div class="conteudo">
 	<form id="form_enterprise" action="" method="post">
+		{% csrf_token %}
+		<div class="message"></div>
 		<div class="linha">
 			<fieldset>
 				<legend>{% trans "Company Data" %}</legend>
-				
-				<div class="message"></div>
-				
-				{% csrf_token %}
-				 
 				{% for field in form %}
 					{% if field.is_hidden %}
 						{{ field }}

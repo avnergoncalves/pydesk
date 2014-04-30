@@ -5,15 +5,13 @@
 		<title>{% block title %}{% endblock %}</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-		<link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.0.custom.min.css' %}" type="text/css" />
-		<link rel="stylesheet" href="{% static 'css/ui.multiselect.css' %}" type="text/css" />
+		
+		<link rel="stylesheet" href="{% static 'css/chosen.min.css' %}" type="text/css" />
 		<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 		
 		<script src="{% static 'js/jquery-1.9.0.min.js' %}" type="text/javascript"></script>
-		<script src="{% static 'js/jquery-ui-1.10.0.custom.min.js' %}" type="text/javascript"></script>
 		
-		<script src="{% static 'js/ui.multiselect.js' %}" type="text/javascript"></script>
+		<script src="{% static 'js/chosen.jquery.min.js' %}" type="text/javascript"></script>
 		<script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
 		<script src="{% static 'js/jquery.grid.js' %}" type="text/javascript"></script>
 		<script src="{% static 'js/jquery.grid.adicionais.js' %}" type="text/javascript"></script>
@@ -31,14 +29,14 @@
 				<div class="conteudo-menu">
 					<ul class="menu">
 
-						{% ifappexists 'dashboard' %}
+						{% ifappexists 'pydesk.dashboard' %}
 							{% url 'home' as the_url %}
 							{% if the_url%}
 								<li class="{% get_active_class 'home' %}"><a href="{{ the_url }}">{% trans "Dashboards" %}</a></li>
 							{% endif %}
 						{% endifappexists %}
 
-						{% ifappexists 'service' %}
+						{% ifappexists 'pydesk.service' %}
 							<li class="{% get_active_class 'service' %}">
 								<a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">
@@ -48,7 +46,7 @@
 							</li>
 						{% endifappexists %}
 
-						{% ifappexists 'configuration' %}
+						{% ifappexists 'pydesk.configuration' %}
 							<li class="{% get_active_class 'configuration' %}">
 								<a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">
@@ -85,7 +83,7 @@
 							</li>
 						{% endifappexists %}
 
-						{% ifappexists 'financial' %}
+						{% ifappexists 'pydesk.financial' %}
 							<li class="{% get_active_class 'financial' %}">
 								<a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">

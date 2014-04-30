@@ -8,6 +8,7 @@ Created on Feb 6, 2014
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class Enterprise(models.Model):
@@ -79,7 +80,7 @@ class UserProfile(models.Model):
 
 
     def consult_grid(self, filters, params_grid):
-        map_order = {'2': 'first_name', '3': 'last_name', '4': 'email', '5': 'phone', '6': 'cell_phone'}
+        map_order = {'2': 'first_name', '3': 'last_name', '4': 'email', '5': '_profile_cache__phone', '6': '_profile_cache__cell_phone', '7':'_profile_cache__enterprise__rasao_social'}
         
         pagina = int(params_grid.get('pagina'))
         limite = int(params_grid.get('limite'))
@@ -99,21 +100,32 @@ class UserProfile(models.Model):
             params.append(status)
         
         query = User.objects.select_related('_profile_cache').extra(where=where, params=params).order_by(order_f)
-
-        offset = (pagina-1)*limite
-        result = query[offset:limite]
         count = query.count()
         
-        
+        #Calcula paginacao
+        offset = (pagina-1)*limite
+        fim = (limite*pagina) if pagina > 0 else limite
+
+        if fim > count:
+            fim = count
+
+        result = query[offset:fim]
+        #Calcula paginacao
+
         data = []
         for i in result:
+            try:
+                userprofile = i.get_profile()
+            except ObjectDoesNotExist:
+                userprofile = None
+
             data.append( {'1': {'value': i.id, 'events': 'checkbox'},
                           '2': i.first_name,
                           '3': i.last_name,
                           '4': i.email,
-                          '5': i.userprofile.phone if hasattr(i, 'userprofile') else '',
-                          '6': i.userprofile.cell_phone if hasattr(i, 'userprofile') else '',
-                          '7': i.userprofile.enterprise.rasao_social if hasattr(i, 'userprofile') else '',
+                          '5': userprofile.phone if userprofile else '',
+                          '6': userprofile.cell_phone if userprofile else '',
+                          '7': userprofile.enterprise.rasao_social if userprofile else '',
                           '8': {'value': i.id, 'events': 'editar'},
                           '9': {'icon': 'ativo'} if i.is_active else {'icon': 'inativo'}
                           }

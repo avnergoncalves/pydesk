@@ -24,7 +24,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'templates')
+    os.path.join(BASE_DIR, 'core/templates')
 )
 
 TEMPLATE_LOADERS = (
@@ -45,7 +45,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "configuration.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.configuration.UserProfile"
 
 # Application definition
 
@@ -55,10 +55,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pydesk',
-    'accounts',
-    'dashboard',
-    'configuration',
+    'pydesk.core',
+    'pydesk.accounts',
+    'pydesk.dashboard',
+    'pydesk.configuration',
 )
 
 MIDDLEWARE_CLASSES = (

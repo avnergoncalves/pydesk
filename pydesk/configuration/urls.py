@@ -7,7 +7,7 @@ Created on Feb 6, 2014
 
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('configuration.views',
+urlpatterns = patterns('pydesk.configuration.views',
      url(r'^/enterprise/list[/]?$', 'enterprise_list', name='enterprise_list'),
      url(r'^/enterprise/edit[/]?$', 'enterprise_edit', name='enterprise_edit'),
      url(r'^/enterprise/add[/]?$', 'enterprise_add', name='enterprise_add'),

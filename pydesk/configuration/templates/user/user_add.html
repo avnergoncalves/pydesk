@@ -1,0 +1,107 @@
+{% extends "template.html" %} 
+{% load staticfiles %} {% load i18n %}
+ 
+{% block title%}{% trans "User" %} | Pydesk{% endblock %}
+ 
+{% block header %}
+	<script src="{% static 'js/user/user_add.js' %}" type="text/javascript"></script>
+{% endblock %} 
+
+{% block body %}
+<div class="sumario">
+	<div>
+		<h1>{% trans "Register User" %}</h1>
+	</div>
+</div>
+
+<div class="margin-sumario"></div>
+
+<div class="conteudo">
+	<form id="form_user" action="" method="post">
+		{% csrf_token %}
+		<div class="message"></div>
+		
+		<div class="linha">
+			<fieldset>
+				<legend>{% trans "User Data" %}</legend>
+
+				{% for field in form_user %}
+					{% if field.is_hidden %}
+						{{ field }}
+					{% else %}
+						<div class="campo">
+							<label for="id_{{ field.name }}">
+								{{ field.label }} 
+								{% if field.field.required %}<span class="obrigatorio">*</span>{% endif %}
+							</label>
+							{{ field }}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</fieldset>
+
+			<fieldset>
+				<legend>{% trans "Relationships" %}</legend>
+
+				<div class="campo">
+					<label>Equipes</label>
+					<select id="select_equipes" class="chosen-select" multiple="multiple" name="select_equipes[]">
+						<option value="1">teste 1</option>
+						<option value="2">teste 2</option>
+						<option value="3">teste 3</option>
+						<option value="4">teste 4</option>
+						<option value="5">teste 5</option>
+						<option value="6">teste 6</option>
+						<option value="7">teste 7</option>
+					</select>
+				</div>
+				
+				<div class="campo">
+					<label>Perfis</label>
+					<select id="select_perfis" class="chosen-select" multiple="multiple" name="select_perfis[]">
+						<option value="1">teste 1</option>
+						<option value="2">teste 2</option>
+						<option value="3">teste 3</option>
+						<option value="4">teste 4</option>
+						<option value="5">teste 5</option>
+						<option value="6">teste 6</option>
+						<option value="7">teste 7</option>
+					</select>
+				</div>
+				
+				<div class="campo">
+					<label>Permissões</label>
+					<select id="select_permissoes" class="chosen-select" multiple="multiple" name="select_permissoes[]">
+						<option value="1">teste 1</option>
+						<option value="2">teste 2</option>
+						<option value="3">teste 3</option>
+						<option value="4">teste 4</option>
+						<option value="5">teste 5</option>
+						<option value="6">teste 6</option>
+						<option value="7">teste 7</option>
+					</select>
+				</div>
+				
+				<div class="campo">
+					<label>Tipos Ic's</label>
+					<select id="select_tipo_ic" class="chosen-select" multiple="multiple" name="select_tipo_ic[]">
+						<option value="1">teste 1</option>
+						<option value="2">teste 2</option>
+						<option value="3">teste 3</option>
+						<option value="4">teste 4</option>
+						<option value="5">teste 5</option>
+						<option value="6">teste 6</option>
+						<option value="7">teste 7</option>
+					</select>
+				</div>
+			</fieldset>
+		</div>
+
+		<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;">
+			<div class="btn-group">
+				<a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="javascript:history.go(-1);">{% trans "Back" %}</a>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
