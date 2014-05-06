@@ -48,6 +48,9 @@ coverage.xml
 # Eclipse
 .settings
 
+#PyCharm
+.idea
+
 # Django stuff:
 *.log
 *.pot
