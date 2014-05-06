@@ -11,9 +11,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-
-from pydesk.user.forms import UserForm
-from pydesk.user.models import UserProfile
+from pydesk.configuration.user.forms import UserForm
+from pydesk.configuration.user.models import UserProfile
 from django.contrib.auth.models import User
 
 
@@ -25,18 +24,18 @@ def user_list(request):
 @login_required
 def user_add(request):
     return render(request, 'user/user_add.html', {'form_user': UserForm(), 
-                                                  'form_relationships':''})
+                                                  'form_relationships': ''})
 
 
 @login_required
 def user_ajax_list(request):
     if request.is_ajax():
-        params_grid = {}
+        params_grid = dict()
         params_grid['limite'] = request.GET.get('limite', 50)
         params_grid['pagina'] = request.GET.get('pagina', 1)
         params_grid['order'] = request.GET.get('order', '1 ASC')
 
-        filters = {}
+        filters = dict()
         filters['find_user'] = request.GET.get('find_user', '')
         filters['is_active'] = request.GET.get('is_active', '')
 

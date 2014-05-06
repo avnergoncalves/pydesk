@@ -11,9 +11,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-
-from pydesk.enterprise.forms import EnterpriseForm
-from pydesk.enterprise.models import Enterprise
+from pydesk.configuration.enterprise.forms import EnterpriseForm
+from pydesk.configuration.enterprise.models import Enterprise
 
 
 @login_required
@@ -40,12 +39,12 @@ def enterprise_edit(request):
 def enterprise_ajax_list(request):
     
     if request.is_ajax():
-        params_grid = {}
+        params_grid = dict()
         params_grid['limite'] = request.GET.get('limite', 50)
         params_grid['pagina'] = request.GET.get('pagina', 1)
         params_grid['order'] = request.GET.get('order', '1 ASC')
 
-        filters = {}
+        filters = dict()
         filters['find_enterprise'] = request.GET.get('find_enterprise', '')
         filters['status_enterprise'] = request.GET.get('status_enterprise', '')
 

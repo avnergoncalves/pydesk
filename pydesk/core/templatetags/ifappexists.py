@@ -43,7 +43,7 @@ class AppCheckNode(template.Node):
      
             if app.startswith("'") and app.endswith("'"):
                 app = app[1:-1]
-     
+
             if app in settings.INSTALLED_APPS:
                 allowed = True
             else:

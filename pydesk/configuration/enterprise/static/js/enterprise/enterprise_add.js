@@ -1,7 +1,7 @@
 $(function() {
 
 	$('#btn_save').on('click', function(){
-		$.post("/enterprise/ajax/save", $('#form_enterprise').serialize())
+		$.post("/configuration/enterprise/ajax/save", $('#form_enterprise').serialize())
 		 .done(function(response){
 			 if(response.status == '1'){
 				var id = $('#id_id').val();
@@ -14,7 +14,7 @@ $(function() {
 	});
 	
 	$('#btn_back').on('click', function(){
-		window.location.href = '/enterprise/list#grid=1';
+		window.location.href = '/configuration/enterprise/list#grid=1';
 	});
 	
 	$("#id_cnpj").mask("99.999.999/9999-99");

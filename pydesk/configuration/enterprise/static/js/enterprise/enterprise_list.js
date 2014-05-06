@@ -2,7 +2,7 @@ $(function() {
 
 	$("#grid_list_enterprise").grid(
 			{
-				url : "/enterprise/ajax/list",
+				url : "/configuration/enterprise/ajax/list",
 				data:{
 					find_enterprise: $('#find_enterprise'),
 					status_enterprise: $('#status_enterprise')
@@ -64,7 +64,7 @@ $(function() {
 	$('#btn_active').on('click', function(){
 		if(confirm('Deseja ativar os itens selecionados ?')){
 			$('#hdd_is_active').val('1');
-			$.post("/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
 					$('#grid_list_enterprise').grid().reload({consultar:true});
@@ -77,7 +77,7 @@ $(function() {
 	$('#btn_inative').on('click', function(){
 		if(confirm('Deseja inativar os itens selecionados ?')){
 			$('#hdd_is_active').val('0');
-			$.post("/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
+			$.post("/configuration/enterprise/ajax/toogle_status", $('#form_list_enterprise').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
 					$('#grid_list_enterprise').grid().reload({consultar:true});

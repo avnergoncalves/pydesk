@@ -17,8 +17,8 @@ urlpatterns = patterns('',
 
      url(r'^accounts', include('pydesk.accounts.urls')),
      url(r'^dashboard', include('pydesk.dashboard.urls')),
-     url(r'^enterprise', include('pydesk.enterprise.urls')),
-     url(r'^user', include('pydesk.user.urls')),
+     url(r'^configuration/enterprise', include('pydesk.configuration.enterprise.urls')),
+     url(r'^configuration/user', include('pydesk.configuration.user.urls')),
      
      url(r'^admin/', include(admin.site.urls)),
 )

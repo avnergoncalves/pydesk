@@ -8,7 +8,7 @@ Created on Feb 6, 2014
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from pydesk.enterprise.models import Enterprise
+from pydesk.configuration.enterprise.models import Enterprise
 
 
 class Equipe(models.Model):

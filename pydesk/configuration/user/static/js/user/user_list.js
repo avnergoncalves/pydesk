@@ -2,7 +2,7 @@ $(function() {
 
 	$("#grid_list_user").grid(
 			{
-				url : "/user/ajax/list",
+				url : "/configuration/user/ajax/list",
 				data:{
 					find_user: $('#find_user'),
 					is_active: $('#is_active')
@@ -76,7 +76,7 @@ $(function() {
 	$('#btn_active').on('click', function(){
 		if(confirm('Deseja ativar os itens selecionados ?')){
 			$('#hdd_status').val('1');
-			$.post("/user/ajax/toogle_status", $('#form_list_user').serialize())
+			$.post("/configuration/user/ajax/toogle_status", $('#form_list_user').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
 					$('#grid_list_user').grid().reload({consultar:true});
@@ -89,7 +89,7 @@ $(function() {
 	$('#btn_inative').on('click', function(){
 		if(confirm('Deseja inativar os itens selecionados ?')){
 			$('#hdd_status').val('0');
-			$.post("/user/ajax/toogle_status", $('#form_list_user').serialize())
+			$.post("/configuration/user/ajax/toogle_status", $('#form_list_user').serialize())
 			 .done(function(response){
 				 if(response.status == '1'){
 					$('#grid_list_user').grid().reload({consultar:true});
