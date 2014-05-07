@@ -1,9 +1,4 @@
-'''
-Created on Feb 6, 2014
-
-@author: agoncalves
-@email: viner_lipe@hotmail.com
-'''
+# coding: utf-8
 
 import json
 
@@ -22,7 +17,8 @@ def enterprise_list(request):
 
 @login_required
 def enterprise_add(request):
-    return render(request, 'enterprise/enterprise_add.html', {'form': EnterpriseForm()})
+    context = {'form': EnterpriseForm()}
+    return render(request, 'enterprise/enterprise_add.html', context)
 
 
 @login_required
@@ -32,7 +28,9 @@ def enterprise_edit(request):
     data = get_object_or_404(Enterprise, pk=pk)
     form = EnterpriseForm(instance=data)
 
-    return render(request, 'enterprise/enterprise_add.html', {'form': form})
+    context = {'form': form}
+
+    return render(request, 'enterprise/enterprise_add.html', context)
 
 
 @login_required
@@ -48,11 +46,9 @@ def enterprise_ajax_list(request):
         filters['find_enterprise'] = request.GET.get('find_enterprise', '')
         filters['status_enterprise'] = request.GET.get('status_enterprise', '')
 
-        model = Enterprise()
-        grid = model.consult_grid(filters, params_grid)
+        json_grid = Enterprise.grid.search(filters, params_grid)
 
-        return HttpResponse(json.dumps(grid), mimetype='application/json')
-
+        return HttpResponse(json_grid, mimetype='application/json')
     else:
         raise Http404
 
@@ -77,6 +73,7 @@ def enterprise_ajax_save(request):
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:
         raise Http404
+
 
 @login_required
 def enterprise_ajax_toogle_status(request):
@@ -105,7 +102,7 @@ def enterprise_ajax_toogle_status(request):
                 message.append(unicode(_('Operation successful.')))
                 data = {'status': '1', 'message': message}
         else:
-            data = {'status': '0', 'errors': {'__all__':message}}
+            data = {'status': '0', 'errors': {'__all__': message}}
 
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:

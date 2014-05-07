@@ -46,7 +46,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "pydesk.enterprise.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.configuration.enterprise.UserProfile"
 
 # Application definition
 

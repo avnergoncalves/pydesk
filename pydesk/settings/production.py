@@ -46,7 +46,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "pydesk.enterprise.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.configuration.enterprise.UserProfile"
 
 # Application definition
 
@@ -60,8 +60,8 @@ INSTALLED_APPS = (
     'pydesk.core',
     'pydesk.accounts',
     'pydesk.dashboard',
-    'pydesk.enterprise',
-    'pydesk.user',
+    'pydesk.configuration.enterprise',
+    'pydesk.configuration.user',
 )
 
 MIDDLEWARE_CLASSES = (
