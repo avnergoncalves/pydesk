@@ -6,8 +6,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from pydesk.configuration.enterprise.forms import EnterpriseForm
-from pydesk.configuration.enterprise.models import Enterprise
+from pydesk.apps.configuration.enterprise.forms import EnterpriseForm
+from pydesk.apps.configuration.enterprise.models import Enterprise
 
 
 @login_required

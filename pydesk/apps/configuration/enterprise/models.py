@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from django.db import models
-from pydesk.configuration.enterprise.managers import GridEnterpriseManager
+from pydesk.apps.configuration.enterprise.managers import GridEnterpriseManager
 
 
 class Enterprise(models.Model):

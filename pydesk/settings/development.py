@@ -46,7 +46,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "pydesk.configuration.enterprise.UserProfile"
+AUTH_PROFILE_MODULE = "pydesk.apps.configuration.enterprise.UserProfile"
 
 # Application definition
 
@@ -57,11 +57,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pydesk.core',
-    'pydesk.accounts',
-    'pydesk.dashboard',
-    'pydesk.configuration.enterprise',
-    'pydesk.configuration.user',
+    'pydesk.apps.core',
+    'pydesk.apps.accounts',
+    'pydesk.apps.dashboard',
+    'pydesk.apps.configuration.enterprise',
+    'pydesk.apps.configuration.user',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -119,12 +119,3 @@ DATABASES = {
             'OPTIONS': {"init_command": "SET storage_engine=INNODB"}
     }
 }
-
-#**************************************************************************************************
-#                                       Mapeamento de URL's                                       *
-#**************************************************************************************************
-MAP_URLS = {
-        'LOGIN':  '/',
-        'LOGOUT': '/accounts/logout',
-        'HOME':   '/dashboard/home',
-        }

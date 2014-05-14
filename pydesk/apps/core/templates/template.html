@@ -29,14 +29,14 @@
 				<div class="conteudo-menu">
 					<ul class="menu">
 
-						{% ifappexists 'pydesk.dashboard' %}
+						{% ifappexists 'pydesk.apps.dashboard' %}
 							{% url 'home' as the_url %}
 							{% if the_url%}
 								<li class="{% get_active_class 'home' %}"><a href="{{ the_url }}">{% trans "Dashboards" %}</a></li>
 							{% endif %}
 						{% endifappexists %}
 
-						{% ifappexists 'pydesk.service' %}
+						{% ifappexists 'pydesk.apps.service' %}
 							<li class="{% get_active_class 'service' %}">
 								<a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">
@@ -46,7 +46,7 @@
 							</li>
 						{% endifappexists %}
 
-						{% ifappexists 'pydesk.configuration.user' 'pydesk.configuration.enterprise' %}
+						{% ifappexists 'pydesk.apps.configuration.user' 'pydesk.apps.configuration.enterprise' %}
 							<li class="{% get_active_class 'configuration' %}">
 								<a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">
@@ -83,7 +83,7 @@
 							</li>
 						{% endifappexists %}
 
-						{% ifappexists 'pydesk.financial' %}
+						{% ifappexists 'pydesk.apps.financial' %}
 							<li class="{% get_active_class 'financial' %}">
 								<a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
 								<ul class="submenu">
@@ -95,7 +95,7 @@
 							</li>
 						{% endifappexists %}
 
-						<li><a href="{% url 'accounts.views.logout' %}">{% trans "Logout" %}</a></li>
+						<li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
 					</ul>
 				</div>
 			{% endif %}

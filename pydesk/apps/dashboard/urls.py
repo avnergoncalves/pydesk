@@ -7,6 +7,6 @@ Created on Feb 6, 2014
 
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('pydesk.dashboard.views',
+urlpatterns = patterns('pydesk.apps.dashboard.views',
      url(r'^/home[/]?$', 'home', name='home'),
 )

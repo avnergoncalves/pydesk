@@ -7,12 +7,12 @@ Created on Feb 6, 2014
 
 from django.shortcuts import render, redirect
 from django.contrib import auth
-from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import AuthenticationForm
 
 
 def login(request):
-    v_next = request.GET.get('next', settings.MAP_URLS['HOME'])
+    v_next = request.GET.get('next', reverse('home'))
 
     if request.user.is_authenticated():
         return redirect(v_next)
@@ -27,4 +27,4 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect(settings.MAP_URLS['LOGIN'])
+    return redirect(reverse('login'))

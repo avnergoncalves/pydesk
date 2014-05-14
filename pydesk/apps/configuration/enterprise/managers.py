@@ -29,9 +29,10 @@ class GridEnterpriseManager(models.Manager):
 
         qs = self.extra(where=where, params=params).order_by(order_f)
 
+        count = qs.count()
+
         offset = (page-1)*limit
         result = qs[offset:limit]
-        count = qs.count()
 
         data = []
         for i in result:

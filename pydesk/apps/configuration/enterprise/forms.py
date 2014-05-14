@@ -8,7 +8,7 @@ Created on Feb 6, 2014
 from django.utils.translation import ugettext_lazy as _
 from django.forms import ModelForm, Textarea, HiddenInput, TextInput, IntegerField
 
-from pydesk.configuration.enterprise.models import Enterprise
+from pydesk.apps.configuration.enterprise.models import Enterprise
 
 
 ##FORMS

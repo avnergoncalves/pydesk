@@ -7,7 +7,7 @@ Created on Feb 6, 2014
 
 from django.conf.urls import patterns, url
 
-urlpatterns = patterns('pydesk.configuration.user.views',
+urlpatterns = patterns('pydesk.apps.configuration.user.views',
      url(r'^/list[/]?$', 'user_list', name='user_list'),
      #url(r'^/user/edit[/]?$', 'user_edit', name='user_edit'),
      url(r'^/add[/]?$', 'user_add', name='user_add'),

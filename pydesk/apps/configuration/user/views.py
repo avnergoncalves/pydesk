@@ -11,10 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 from django.http.response import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from pydesk.configuration.user.forms import UserForm
-from pydesk.configuration.user.models import UserProfile
 from django.contrib.auth.models import User
-
+from pydesk.apps.configuration.user.forms import UserForm
+from pydesk.apps.configuration.user.models import UserProfile
 
 @login_required
 def user_list(request):

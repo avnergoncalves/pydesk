@@ -39,7 +39,7 @@ $(function() {
 							th : {'width' : "5%"},
 							acoes : {
 								"editar" : function(res, row_id) {
-									window.location.href = "/enterprise/edit?id=" + res;
+									window.location.href = "/configuration/enterprise/edit?id=" + res;
 								}
 							}
 						},

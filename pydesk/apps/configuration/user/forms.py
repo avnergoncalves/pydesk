@@ -13,8 +13,8 @@ from django.forms.models import ModelChoiceField
 from django.forms.forms import Form
 from django.contrib.auth.models import User
 
-from pydesk.configuration.user.models import UserProfile
-from pydesk.configuration.enterprise.models import Enterprise
+from pydesk.apps.configuration.user.models import UserProfile
+from pydesk.apps.configuration.enterprise.models import Enterprise
 
 ##CUSTON FIELDS
 class EnterpriseModelChoiceField(ModelChoiceField):
