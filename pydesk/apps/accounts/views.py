@@ -1,9 +1,4 @@
-'''
-Created on Feb 6, 2014
-
-@author: agoncalves
-@email: viner_lipe@hotmail.com
-'''
+# coding: utf-8
 
 from django.shortcuts import render, redirect
 from django.contrib import auth
