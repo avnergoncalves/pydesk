@@ -2,48 +2,65 @@
 
 import json
 
-from pydesk.apps.core import managers
-from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Q
+from django.db import models
 
 
-class GridUserManager(managers.GridManager):
+class GridUserManager(models.Manager):
 
     def __init__(self):
         super(GridUserManager, self).__init__()
-        self.map_order = map_order = {'1': 'first_name', '2': 'first_name', '3': 'last_name', '4': 'email', '5': '_profile_cache__phone', '6': '_profile_cache__cell_phone', '7':'_profile_cache__enterprise__rasao_social'}
+
+        self.map_order = {'1': 'user__first_name',
+                          '2': 'user__first_name',
+                          '3': 'user__last_name',
+                          '4': 'user__email',
+                          '5': 'phone',
+                          '6': 'cell_phone',
+                          '7': 'enterprise__rasao_social'}
 
     def search(self, filters, params_grid):
+        #recupera order by
+        order_f = params_grid.get('order')
+        order_s = order_f.replace('DESC', '-').replace('ASC', '').split(' ')
+        order = order_s[1]+self.map_order.get(order_s[0])
+        #recupera order by
 
+        #calcula paginação
+        page = int(params_grid.get('page'))
+        limit = int(params_grid.get('limit'))
+        offset = (page-1)*limit
+        #calcula paginação
+
+        #recupera filters
         status = filters['is_active']
-        find = '%'+filters['find_user'].replace("\\","\\\\")+'%'
+        find = filters['find_user'].replace("\\","\\\\")
+        #recupera filters
 
-        where = ['first_name LIKE %s OR last_name LIKE %s OR email LIKE %s OR email LIKE %s', 'is_superuser = 0']
-        params = [find, find, find, find]
+        #cria queryset
+        qs = self.filter(Q(user__first_name__icontains=find) |
+                         Q(user__last_name__icontains=find) |
+                         Q(user__email__icontains=find))
 
         if status != '-1':
-            where.append('is_active = %s')
-            params.append(status)
+            qs.filter(user__is_active=status)
 
-        self.set_queryset(params_grid, where, params)
+        qs.order_by(order)
+        #cria queryset
 
-        count = self.count_total()
-        result = self.get_result()
+        count = qs.count()
+        result = qs[offset:limit]
+
         data = []
-
         if result:
             for i in result:
-                try:
-                    userprofile = i.get_profile()
-                except ObjectDoesNotExist:
-                    userprofile = None
-
                 data.append({'1': {'value': i.id, 'events': 'checkbox'},
-                             '2': i.first_name,
-                             '3': i.last_name,
-                             '4': i.email,
-                             '5': userprofile.phone if userprofile else '',
-                             '6': userprofile.cell_phone if userprofile else '',
-                             '7': userprofile.enterprise.rasao_social if userprofile else '',
+                             '2': i.user.first_name,
+                             '3': i.user.last_name,
+                             '4': i.user.email,
+                             '5': i.phone,
+                             '6': i.cell_phone,
+                             '7': i.enterprise.rasao_social,
                              '8': {'value': i.id, 'events': 'editar'},
                              '9': {'icon': 'ativo'} if i.is_active else {'icon': 'inativo'}})
 

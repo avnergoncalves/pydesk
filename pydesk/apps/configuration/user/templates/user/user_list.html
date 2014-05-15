@@ -4,60 +4,47 @@
 {% block title %}{% trans "User"%} | Pydesk{% endblock %}
 
 {% block header %}
-	<script src="{% static 'js/user/user_list.js' %}" type="text/javascript"></script>
-    <script src="https://apis.google.com/js/client.js"></script>
-    <script>
-      function auth() {
-        var config = {
-          'client_id': '1089512736479-koeabjivfcerfvacvlo9uq8lg0bdp8cn.apps.googleusercontent.com',
-          'scope': 'https://www.googleapis.com/auth/calendar.readonly'
-        };
-        gapi.auth.authorize(config, function() {
-          console.log('login complete');
-          console.log(gapi.auth.getToken());
-        });
-      }
+    <script src="{% static 'js/user/user_list.js' %}" type="text/javascript"></script>
     </script>
 {% endblock %}
 
 {% block body %}
-    <button onclick="auth();">Authorize</button>
 
-<!--<div class="sumario">
-	<div>
-		<div style="float:right;">
-			<a class="btn-3" href="{% url 'user_add' %}">{% trans "Register"%} <i class="icone-preto ui-icon-plus"></i></a>
-		</div>
-		<h1>{% trans "Manange Users"%}</h1>
-	</div>
+<div class="sumario">
+   <div>
+      <div style="float:right;">
+         <a class="btn-3" href="{% url 'user_add' %}">{% trans "Register"%} <i class="icone-preto ui-icon-plus"></i></a>
+      </div>
+      <h1>{% trans "Manange Users"%}</h1>
+   </div>
 </div>
 
 <div class="margin-sumario"></div>
 
 <div class="conteudo">
 
-	<div class="message"></div>
+   <div class="message"></div>
 
-	<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;border-bottom:1px solid #EEEEEE;">
-		<div class="btn-group">
-			<a class="btn-1" id="btn_active" href="javascript:;">{% trans "Active"%}</a><a class="btn-1" id="btn_inative" href="javascript:;">{% trans "Inative"%}</a>
-		</div>
+   <div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;border-bottom:1px solid #EEEEEE;">
+      <div class="btn-group">
+         <a class="btn-1" id="btn_active" href="javascript:;">{% trans "Active"%}</a><a class="btn-1" id="btn_inative" href="javascript:;">{% trans "Inative"%}</a>
+      </div>
 
-		<div style="float:right;">
-			<input type="text" value="" id="find_user"/>
-			<select id="is_active">
-				<option value="1">Ativos</option>
-				<option value="0">Inativos</option>
-				<option value="-1">Todos</option>
-			</select>
-		</div>
-	</div>
+      <div style="float:right;">
+         <input type="text" value="" id="find_user"/>
+         <select id="is_active">
+            <option value="1">Ativos</option>
+            <option value="0">Inativos</option>
+            <option value="-1">Todos</option>
+         </select>
+      </div>
+   </div>
 
 
-	<form id="form_list_user" action="" method="post">
-		<input type="hidden" value="" name="hdd_status" id="hdd_status">
-		{% csrf_token %}
-		<div class="grid-consulta" id="grid_list_user"></div>
-	</form>
-</div>-->
+   <form id="form_list_user" action="" method="post">
+      <input type="hidden" value="" name="hdd_status" id="hdd_status">
+      {% csrf_token %}
+      <div class="grid-consulta" id="grid_list_user"></div>
+   </form>
+</div>
 {% endblock %}
