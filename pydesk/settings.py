@@ -24,7 +24,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'core/templates')
+    os.path.join(BASE_DIR, 'apps/core/templates')
 )
 
 TEMPLATE_LOADERS = (
@@ -43,7 +43,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '.herokuapp.com']
 
 #Model Profile
 AUTH_PROFILE_MODULE = "pydesk.apps.configuration.enterprise.UserProfile"
@@ -102,8 +102,6 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-
 
 #**************************************************************************************************
 #                                               Database                                          *

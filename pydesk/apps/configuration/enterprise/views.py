@@ -38,8 +38,8 @@ def enterprise_ajax_list(request):
     
     if request.is_ajax():
         params_grid = dict()
-        params_grid['limite'] = request.GET.get('limite', 50)
-        params_grid['pagina'] = request.GET.get('pagina', 1)
+        params_grid['limit'] = request.GET.get('limite', 50)
+        params_grid['page'] = request.GET.get('pagina', 1)
         params_grid['order'] = request.GET.get('order', '1 ASC')
 
         filters = dict()

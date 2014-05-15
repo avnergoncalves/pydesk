@@ -25,16 +25,15 @@ def user_add(request):
 def user_ajax_list(request):
     if request.is_ajax():
         params_grid = dict()
-        params_grid['limite'] = request.GET.get('limite', 50)
-        params_grid['pagina'] = request.GET.get('pagina', 1)
+        params_grid['limit'] = request.GET.get('limite', 50)
+        params_grid['page'] = request.GET.get('pagina', 1)
         params_grid['order'] = request.GET.get('order', '1 ASC')
 
         filters = dict()
         filters['find_user'] = request.GET.get('find_user', '')
         filters['is_active'] = request.GET.get('is_active', '')
 
-        model = UserProfile()
-        grid = model.consult_grid(filters, params_grid)
+        grid = UserProfile.grid.search(filters, params_grid)
 
         return HttpResponse(json.dumps(grid), mimetype='application/json')
 

@@ -1,108 +1,108 @@
 {% load staticfiles %} {% load i18n %}  {% load ifappexists %} {% load navigation %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>{% block title %}{% endblock %}</title>
-		
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		
-		<link rel="stylesheet" href="{% static 'css/chosen.min.css' %}" type="text/css" />
-		<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
-		
-		<script src="{% static 'js/jquery-1.9.0.min.js' %}" type="text/javascript"></script>
-		
-		<script src="{% static 'js/chosen.jquery.min.js' %}" type="text/javascript"></script>
-		<script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
-		<script src="{% static 'js/jquery.grid.js' %}" type="text/javascript"></script>
-		<script src="{% static 'js/jquery.grid.adicionais.js' %}" type="text/javascript"></script>
-		
-		<script src="{% static 'js/general.js' %}" type="text/javascript"></script>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <link rel="stylesheet" href="{% static 'css/chosen.min.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+        
+        <script src="{% static 'js/jquery-1.9.0.min.js' %}" type="text/javascript"></script>
+        
+        <script src="{% static 'js/chosen.jquery.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.maskedinput.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.grid.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/jquery.grid.adicionais.js' %}" type="text/javascript"></script>
+        
+        <script src="{% static 'js/general.js' %}" type="text/javascript"></script>
 
-		{% block header %}{% endblock %}
-	</head>
-	{% autoescape on %}
-	<body>
-		<div class="geral">
-			<div class="cabecalho"></div>
-			
-			{% if request.user.is_authenticated %}
-				<div class="conteudo-menu">
-					<ul class="menu">
+        {% block header %}{% endblock %}
+    </head>
+    {% autoescape on %}
+    <body>
+        <div class="geral">
+            <div class="cabecalho"></div>
+            
+            {% if request.user.is_authenticated %}
+                <div class="conteudo-menu">
+                    <ul class="menu">
 
-						{% ifappexists 'pydesk.apps.dashboard' %}
-							{% url 'home' as the_url %}
-							{% if the_url%}
-								<li class="{% get_active_class 'home' %}"><a href="{{ the_url }}">{% trans "Dashboards" %}</a></li>
-							{% endif %}
-						{% endifappexists %}
+                        {% ifappexists 'pydesk.apps.dashboard' %}
+                            {% url 'home' as the_url %}
+                            {% if the_url%}
+                                <li class="{% get_active_class 'home' %}"><a href="{{ the_url }}">{% trans "Dashboards" %}</a></li>
+                            {% endif %}
+                        {% endifappexists %}
 
-						{% ifappexists 'pydesk.apps.service' %}
-							<li class="{% get_active_class 'service' %}">
-								<a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
-								<ul class="submenu">
-									<li class="{% get_active_class 'service_request' %}><a href="servico_solicitar.htm">{% trans "Request Services" %}</a></li>
-									<li class="{% get_active_class 'service_consult' %}><a href="servico_consultar.htm">{% trans "Consult Services" %}</a></li>
-								</ul>
-							</li>
-						{% endifappexists %}
+                        {% ifappexists 'pydesk.apps.configuration.user' 'pydesk.apps.configuration.enterprise' %}
+                            <li class="{% get_active_class 'configuration' %}">
+                                <a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+                                <ul class="submenu">
+                                    {% url 'enterprise_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'enterprise_list' %}"><a href="{{ the_url }}">{% trans "Manage Enterprises" %}</a></li>
+                                    {% endif %}
+                                    
+                                    {% url 'user_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'user_list' %}"><a href="{{ the_url }}">{% trans "Manage Users" %}</a></li>
+                                    {% endif %}
+                                    
+                                    {% url 'configuration_item_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'configuration_item_list' %}"><a href="{{ the_url }}">{% trans "Manage Configuration Items(CI's)" %}</a></li>
+                                    {% endif %}
+    
+                                    {% url 'contract_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'contract_list' %}"><a href="{{ the_url }}">{% trans "Manage Contracts" %}</a></li>
+                                    {% endif %}
+                                    
+                                    {% url 'sla_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'sla_list' %}"><a href="{{ the_url }}">{% trans "Manage Sla's" %}</a></li>
+                                    {% endif %}
+                                    
+                                    {% url 'post_list' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'post_list' %}"><a href="{{ the_url }}">{% trans "Manage Post's" %}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        {% endifappexists %}
 
-						{% ifappexists 'pydesk.apps.configuration.user' 'pydesk.apps.configuration.enterprise' %}
-							<li class="{% get_active_class 'configuration' %}">
-								<a href="">{% trans "Configuration" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
-								<ul class="submenu">
-									{% url 'enterprise_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'enterprise_list' %}"><a href="{{ the_url }}">{% trans "Manage Enterprises" %}</a></li>
-									{% endif %}
-									
-									{% url 'user_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'user_list' %}"><a href="{{ the_url }}">{% trans "Manage Users" %}</a></li>
-									{% endif %}
-									
-									{% url 'configuration_item_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'configuration_item_list' %}"><a href="{{ the_url }}">{% trans "Manage Configuration Items(CI's)" %}</a></li>
-									{% endif %}
-	
-									{% url 'contract_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'contract_list' %}"><a href="{{ the_url }}">{% trans "Manage Contracts" %}</a></li>
-									{% endif %}
-									
-									{% url 'sla_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'sla_list' %}"><a href="{{ the_url }}">{% trans "Manage Sla's" %}</a></li>
-									{% endif %}
-									
-									{% url 'post_list' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'post_list' %}"><a href="{{ the_url }}">{% trans "Manage Post's" %}</a></li>
-									{% endif %}
-								</ul>
-							</li>
-						{% endifappexists %}
+                        {% ifappexists 'pydesk.apps.service' %}
+                            <li class="{% get_active_class 'service' %}">
+                                <a href="">{% trans "Services" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+                                <ul class="submenu">
+                                    <li class="{% get_active_class 'service_request' %}><a href="servico_solicitar.htm">{% trans "Request Services" %}</a></li>
+                                    <li class="{% get_active_class 'service_consult' %}><a href="servico_consultar.htm">{% trans "Consult Services" %}</a></li>
+                                </ul>
+                            </li>
+                        {% endifappexists %}
 
-						{% ifappexists 'pydesk.apps.financial' %}
-							<li class="{% get_active_class 'financial' %}">
-								<a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
-								<ul class="submenu">
-									{% url 'financial_closing' as the_url %}
-									{% if the_url %}
-										<li class="{% get_active_class 'financial_closing' %}"><a href="">{% trans "Closing" %}</a></li>
-									{% endif %}
-								</ul>
-							</li>
-						{% endifappexists %}
+                        {% ifappexists 'pydesk.apps.financial' %}
+                            <li class="{% get_active_class 'financial' %}">
+                                <a href="">{% trans "Financial" %} <i class="icone-branco ui-icon-triangle-1-s"></i></a>
+                                <ul class="submenu">
+                                    {% url 'financial_closing' as the_url %}
+                                    {% if the_url %}
+                                        <li class="{% get_active_class 'financial_closing' %}"><a href="">{% trans "Closing" %}</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        {% endifappexists %}
 
-						<li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
-					</ul>
-				</div>
-			{% endif %}
+                        <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                    </ul>
+                </div>
+            {% endif %}
 
-			{% block body %}{% endblock %}
+            {% block body %}{% endblock %}
 
-		</div>
-	</body>
-	{% endautoescape %}
+        </div>
+    </body>
+    {% endautoescape %}
 </html>
