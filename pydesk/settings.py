@@ -46,7 +46,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '.herokuapp.com']
 
 #Model Profile
-AUTH_PROFILE_MODULE = "pydesk.apps.configuration.enterprise.UserProfile"
+AUTH_PROFILE_MODULE = "user.UserProfile"
 
 # Application definition
 
@@ -113,7 +113,7 @@ DATABASES = {
             'HOST': '127.0.0.1',
             'NAME': 'pydesk',
             'USER': 'root',
-            'PASSWORD': '',
+            'PASSWORD': 'root',
             'OPTIONS': {"init_command": "SET storage_engine=INNODB"}
     }
 }

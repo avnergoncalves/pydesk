@@ -50,18 +50,16 @@ def user_ajax_save(request):
             e = get_object_or_404(User, pk=pk)
 
         form1 = UserForm(request.POST, instance=e)
-        form2 = UserForm(request.POST, instance=e)
         
         is_valid_form1 = form1.is_valid()
-        is_valid_form2 = form2.is_valid()
         
-        if is_valid_form1 and is_valid_form2:
+        if is_valid_form1:
             form1.save()
 
             message = unicode(_('Operation successful.'))
             data = {'status': '1', 'message': [message]}
         else:
-            data = {'status': '0', 'errors': form1.errors+form2.errors}
+            data = {'status': '0', 'errors': form1.errors}
 
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:

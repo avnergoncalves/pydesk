@@ -29,7 +29,8 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ( "username", "first_name", "last_name", "email", "enterprise", "phone", "celphone", "receive_email")
+        fields = ("username", "first_name", "last_name", "email", "enterprise", "phone", "celphone", "password1",
+                  "password2", "receive_email")
 
     def save(self, commit=True):
         user = super(UserCreationForm, self).save(commit=False)
@@ -48,23 +49,6 @@ class UserForm(UserCreationForm):
             user.save()
 
             user_profile.user = user
-            user_profile.save()
-
-        return user
-
-
-class UserRelationshipsForm(Form):
-
-    equipe = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Equipe'))
-    perfil = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Perfil'))
-    permissao = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Permissao'))
-    tipo_ic = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Tipo Ic'))
-
-    def save(self, user, commit=True):
-        user_profile = user.get_profile()
-
-
-        if commit:
             user_profile.save()
 
         return user
