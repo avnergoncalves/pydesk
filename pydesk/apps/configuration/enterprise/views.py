@@ -48,7 +48,7 @@ def enterprise_ajax_list(request):
 
         json_grid = Enterprise.grid.search(filters, params_grid)
 
-        return HttpResponse(json_grid, mimetype='application/json')
+        return HttpResponse(json_grid, content_type='application/json')
     else:
         raise Http404
 

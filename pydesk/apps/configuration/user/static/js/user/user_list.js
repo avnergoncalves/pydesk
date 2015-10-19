@@ -51,7 +51,7 @@ $(function() {
 							th : {'width' : "5%"},
 							acoes : {
 								"editar" : function(res, row_id) {
-									window.location.href = "/user/edit?id=" + res;
+									window.location.href = "/configuration/user/edit?id=" + res;
 								}
 							}
 						},

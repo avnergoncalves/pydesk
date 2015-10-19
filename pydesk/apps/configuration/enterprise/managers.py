@@ -30,16 +30,18 @@ class GridEnterpriseManager(models.Manager):
         find = filters['find_enterprise'].replace("\\","\\\\")
         #recupera filters
 
-         #cria queryset
-        qs = self.filter(Q(rasao_social__icontains=find) |
-                         Q(nome_fantasia__icontains=find) |
-                         Q(cnpj__icontains=find) |
-                         Q(endereco__icontains=find))
-
+        #cria queryset
         if status != '-1':
-            qs.filter(is_active=status)
-
-        qs.order_by(order)
+            qs = self.filter(Q(is_active=status) &
+                             Q(Q(rasao_social__icontains=find) |
+                             Q(nome_fantasia__icontains=find) |
+                             Q(cnpj__icontains=find) |
+                             Q(endereco__icontains=find))).order_by(order)
+        else:
+            qs = self.filter(Q(rasao_social__icontains=find) |
+                             Q(nome_fantasia__icontains=find) |
+                             Q(cnpj__icontains=find) |
+                             Q(endereco__icontains=find)).order_by(order)
         #cria queryset
 
         count = qs.count()

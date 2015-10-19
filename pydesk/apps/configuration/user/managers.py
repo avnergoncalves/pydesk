@@ -38,14 +38,15 @@ class GridUserManager(models.Manager):
         #recupera filters
 
         #cria queryset
-        qs = self.filter(Q(user__first_name__icontains=find) |
-                         Q(user__last_name__icontains=find) |
-                         Q(user__email__icontains=find))
-
         if status != '-1':
-            qs.filter(user__is_active=status)
-
-        qs.order_by(order)
+            qs = self.filter(Q(user__is_active=status) &
+                             Q(Q(user__first_name__icontains=find) |
+                             Q(user__last_name__icontains=find) |
+                             Q(user__email__icontains=find))).order_by(order)
+        else:
+            qs = self.filter(Q(user__first_name__icontains=find) |
+                             Q(user__last_name__icontains=find) |
+                             Q(user__email__icontains=find)).order_by(order)
         #cria queryset
 
         count = qs.count()
@@ -62,6 +63,7 @@ class GridUserManager(models.Manager):
                              '6': i.cell_phone,
                              '7': i.enterprise.rasao_social,
                              '8': {'value': i.id, 'events': 'editar'},
-                             '9': {'icon': 'ativo'} if i.is_active else {'icon': 'inativo'}})
+                             '9': {'icon': 'ativo'} if i.user.is_active else {'icon': 'inativo'}
+                             })
 
         return json.dumps({'data': data, 'total': count})

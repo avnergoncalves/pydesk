@@ -1,17 +1,17 @@
-{% extends "template.html" %} 
-{% load staticfiles %} {% load i18n %}
+{% extends "template.html" %}
+{% load staticfiles %} {% load i18n %} {% load messages %}
  
 {% block title%}{% trans "User" %} | Pydesk{% endblock %}
  
 {% block header %}
-	<script src="{% static 'js/user/user_edit.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/user/user_edit.js' %}" type="text/javascript"></script>
 {% endblock %} 
 
 {% block body %}
 <div class="sumario">
-	<div>
-		<h1>{% trans "Register User" %}</h1>
-	</div>
+    <div>
+        <h1>{% trans "Register User" %}</h1>
+    </div>
 </div>
 
 <div class="margin-sumario"></div>
@@ -21,40 +21,42 @@
         <li class="ativo">User Data</li>
         <li>Perfil</li>
         <li>Projects</li>
+        <li>Empresas</li>
         <li>Equipes</li>
         <li>Permissoes</li>
     </ul>
 </div>
 
 <div class="conteudo" style="margin-left:170px;">
-	<form id="form_user" action="" method="post">
-		{% csrf_token %}
-		<div class="message"></div>
-		
-		<div class="linha">
-			<fieldset>
-				<legend>{% trans "User Data" %}</legend>
+    <form id="form_user" action="" method="post">
+        {% csrf_token %}
 
-				{% for field in form_user %}
-					{% if field.is_hidden %}
-						{{ field }}
-					{% else %}
-						<div class="campo">
-							<label for="id_{{ field.name }}">
-								{{ field.label }} 
-								{% if field.field.required %}<span class="obrigatorio">*</span>{% endif %}
-							</label>
-							{{ field }}
-						</div>
-					{% endif %}
-				{% endfor %}
-			</fieldset>
+        <div class="message">{% show_messages messages %}</div>
+        
+        <div class="linha">
+            <fieldset>
+                <legend>{% trans "User Data" %}</legend>
 
-		<div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;">
-			<div class="btn-group">
-				<a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="javascript:history.go(-1);">{% trans "Back" %}</a>
-			</div>
-		</div>
-	</form>
+                {% for field in form_user %}
+                    {% if field.is_hidden %}
+                        {{ field }}
+                    {% else %}
+                        <div class="campo">
+                            <label for="id_{{ field.name }}">
+                                {{ field.label }} 
+                                {% if field.field.required %}<span class="obrigatorio">*</span>{% endif %}
+                            </label>
+                            {{ field }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+
+        <div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;">
+            <div class="btn-group">
+                <a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="javascript:history.go(-1);">{% trans "Back" %}</a>
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock %}
