@@ -110,11 +110,11 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
-            'NAME': 'pydesk',
-            'USER': 'root',
-            'PASSWORD': 'root',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'HOST': 'ec2-54-225-165-132.compute-1.amazonaws.com',
+            'NAME': 'devs88r7tig3iq',
+            'USER': 'jokhgirbdsorkw',
+            'PASSWORD': '5rGnlTwkVeqghVkjZHpCKDYWjO',
             'OPTIONS': {"init_command": "SET storage_engine=INNODB"}
     }
 }
