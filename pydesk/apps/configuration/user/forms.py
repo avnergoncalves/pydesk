@@ -28,7 +28,7 @@ class CustomUserCreationForm(UserCreationForm):
     enterprise = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Enterprise'))
     phone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Phone'))
     celphone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Celphone'))
-    receive_email = BooleanField(label=_('Receive E-mail'))
+    receive_email = BooleanField(required=False, label=_('Receive E-mail'))
 
     class Meta:
         model = User
@@ -90,6 +90,7 @@ class CustomUserChangeForm(UserChangeForm):
             kwargs.setdefault('initial', {})['receive_email'] = user_profile.receive_email
 
         super(CustomUserChangeForm, self).__init__(*args, **kwargs)
+
 
     def clean_password_confirm(self):
         password1 = self.cleaned_data.get("password")

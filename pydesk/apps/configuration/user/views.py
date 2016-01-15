@@ -81,7 +81,12 @@ def user_ajax_add_save(request):
 def user_ajax_edit_save(request):
     if request.method == 'POST' and request.is_ajax():
 
-        form1 = CustomUserChangeForm(request.POST)
+        u = None
+        pk = request.POST.get('id', None)
+        if pk:
+            u = get_object_or_404(User, pk=pk)
+
+        form1 = CustomUserChangeForm(request.POST, instance=u)
 
         is_valid_form1 = form1.is_valid()
 

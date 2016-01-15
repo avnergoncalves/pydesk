@@ -1,6 +1,5 @@
 $(function() {
 
-    $(function () {
 
         $.ajaxSetup({
             success:function(response){
@@ -34,7 +33,6 @@ $(function() {
                 }
             }
         });
-    });
 
 });
 
