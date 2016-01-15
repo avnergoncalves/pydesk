@@ -33,7 +33,7 @@ Heroku Deploy
                 'NAME': '<NAME>',
                 'USER': '<USER>',
                 'PASSWORD': '<PASS>',
-                'PORT': '5432'
+                'PORT': '<PORT>'
         }
     }
     ```
