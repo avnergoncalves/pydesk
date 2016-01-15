@@ -111,10 +111,10 @@ STATICFILES_DIRS = (
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
-            'NAME': 'pydesk',
-            'USER': 'root',
-            'PASSWORD': 'root',
+            'HOST': 'ec2-54-225-165-132.compute-1.amazonaws.com',
+            'NAME': 'devs88r7tig3iq',
+            'USER': 'jokhgirbdsorkw',
+            'PASSWORD': '5rGnlTwkVeqghVkjZHpCKDYWjO',
             'OPTIONS': {"init_command": "SET storage_engine=INNODB"}
     }
 }
