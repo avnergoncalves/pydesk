@@ -12,6 +12,28 @@ Access the demo version [here](https://still-plateau-5016.herokuapp.com/).
 User: admin
 Password: admin
 
+South Deploy
+--------------------------------------
+
+1. Gera arquivos de migração
+
+    ```shell
+    python manage.py schemamigration --auto core
+    python manage.py schemamigration --auto accounts
+    python manage.py schemamigration --auto dashboard
+    python manage.py schemamigration --auto enterprise
+    python manage.py schemamigration --auto user
+    python manage.py schemamigration --auto equip
+    python manage.py schemamigration --auto project
+    ```
+
+2. Aplica migração
+
+    ```shell
+    python manage.py migrate
+    ```
+
+
 Heroku Deploy
 --------------------------------------
 1. Clone project.
