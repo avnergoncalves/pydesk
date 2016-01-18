@@ -10,7 +10,7 @@
 {% block body %}
 <div class="sumario">
     <div>
-        <h1>{% trans "Register User" %}</h1>
+        <h1>{% trans "Manager User" %}</h1>
     </div>
 </div>
 
@@ -18,12 +18,12 @@
 
 <div class="menu-vertical">
     <ul>
-        <li class="ativo">User Data</li>
-        <li>Perfil</li>
-        <li>Projects</li>
-        <li>Empresas</li>
-        <li>Equipes</li>
-        <li>Permissoes</li>
+        <li class="ativo"><a href="{% url 'user_edit' %}?id={{ id }}">Usuário</a></li>
+        <li><a href="{% url 'user_enterprise_edit' %}?id={{ id }}">Empresas</a></li>
+        <li><a href="{% url 'user_equip_edit' %}?id={{ id }}">Equipes</a></li>
+        <li><a href="{% url 'user_project_edit' %}?id={{ id }}">Projects</a></li>
+        <!-- <li>Perfil</li> -->
+        <!-- <li>Permissoes</li> -->
     </ul>
 </div>
 
@@ -54,7 +54,7 @@
 
         <div class="btn-toolbar" style="padding:10px 0px;margin:0px 10px;">
             <div class="btn-group">
-                <a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="javascript:history.go(-1);">{% trans "Back" %}</a>
+                <a class="btn-1" id="btn_salve" href="javascript:;">{% trans "Save" %}</a><a class="btn-1" href="{% url 'user_list' %}#grid=1">{% trans "Back" %}</a>
             </div>
         </div>
     </form>

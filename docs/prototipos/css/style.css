@@ -361,8 +361,8 @@ strong{
 	background-color:#ffffff;
 	border: 1px solid #DDDDDD;
 	border-radius: 10px 10px 0px 0px; /* para todos os browsers recentes (e decentes) */
-	-moz-border-radius: 10px 10px 0px 0px; /* para versões antigas do Mozilla */
-	-webkit-border-radius: 10px 10px 0px 0px; /* para versões antigas do Safari */    
+	-moz-border-radius: 10px 10px 0px 0px; /* para versï¿½es antigas do Mozilla */
+	-webkit-border-radius: 10px 10px 0px 0px; /* para versï¿½es antigas do Safari */    
 	border-bottom:none;
 }
 .conteudo{
@@ -372,8 +372,8 @@ strong{
 	margin-right: 20px;
 	border: 1px solid #DDDDDD;
 	border-radius: 10px; /* para todos os browsers recentes (e decentes) */
-	-moz-border-radius: 10px; /* para versões antigas do Mozilla */
-	-webkit-border-radius: 10px; /* para versões antigas do Safari */    
+	-moz-border-radius: 10px; /* para versï¿½es antigas do Mozilla */
+	-webkit-border-radius: 10px; /* para versï¿½es antigas do Safari */    
     position: relative;	
 }
 .conteudo h1{

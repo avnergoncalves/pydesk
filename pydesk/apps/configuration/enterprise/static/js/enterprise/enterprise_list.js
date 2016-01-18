@@ -15,7 +15,7 @@ $(function() {
 							order : false,
 							acoes : {
 								"checkbox" : function(res, row_id) {
-									console.log('click');
+									//console.log('click');
 								},
 							}
 						},

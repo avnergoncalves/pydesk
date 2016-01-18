@@ -16,8 +16,7 @@ class GridUserManager(models.Manager):
                           '3': 'user__last_name',
                           '4': 'user__email',
                           '5': 'phone',
-                          '6': 'cell_phone',
-                          '7': 'enterprise__rasao_social'}
+                          '6': 'cell_phone'}
 
     def search(self, filters, params_grid):
         #recupera order by
@@ -55,15 +54,14 @@ class GridUserManager(models.Manager):
         data = []
         if result:
             for i in result:
-                data.append({'1': {'value': i.id, 'events': 'checkbox'},
+                data.append({'1': {'value': i.user_id, 'events': 'checkbox'},
                              '2': i.user.first_name,
                              '3': i.user.last_name,
                              '4': i.user.email,
                              '5': i.phone,
                              '6': i.cell_phone,
-                             '7': i.enterprise.rasao_social,
-                             '8': {'value': i.id, 'events': 'editar'},
-                             '9': {'icon': 'ativo'} if i.user.is_active else {'icon': 'inativo'}
+                             '7': {'value': i.user_id, 'events': 'editar'},
+                             '8': {'icon': 'ativo'} if i.user.is_active else {'icon': 'inativo'}
                              })
 
         return json.dumps({'data': data, 'total': count})

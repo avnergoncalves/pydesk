@@ -25,14 +25,13 @@ class CustomUserCreationForm(UserCreationForm):
     last_name = CharField(required=True, widget=TextInput(attrs={'size': 50}), label=_('Last Name'))
     email = EmailField(required=True, widget=TextInput(attrs={'size': 40}), label=_('E-mail'))
 
-    enterprise = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Enterprise'))
     phone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Phone'))
     celphone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Celphone'))
-    receive_email = BooleanField(required=False, label=_('Receive E-mail'))
+    receive_email = BooleanField(required=False, initial=True, label=_('Receive E-mail'))
 
     class Meta:
         model = User
-        fields = ("id", "username", "first_name", "last_name", "email", "enterprise", "phone", "celphone", "password1",
+        fields = ("id", "username", "first_name", "last_name", "email", "phone", "celphone", "password1",
                   "password2", "receive_email")
 
     def save(self, commit=True):
@@ -43,7 +42,6 @@ class CustomUserCreationForm(UserCreationForm):
         except ObjectDoesNotExist:
             user_profile = UserProfile()
 
-        user_profile.enterprise = self.cleaned_data['enterprise']
         user_profile.phone = self.cleaned_data['phone']
         user_profile.cell_phone = self.cleaned_data['celphone']
         user_profile.receive_email = self.cleaned_data['receive_email']
@@ -66,14 +64,13 @@ class CustomUserChangeForm(UserChangeForm):
     password = CharField(required=False, widget=PasswordInput(attrs={'size': 50}), label=_('Password'))
     password_confirm = CharField(required=False, widget=PasswordInput(attrs={'size': 50}), label=_('Password confirmation'))
 
-    enterprise = EnterpriseModelChoiceField(queryset=Enterprise.objects.all(), label=_('Enterprise'))
     phone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Phone'))
     celphone = CharField(required=False, widget=TextInput(attrs={'size': 20}), label=_('Celphone'))
     receive_email = BooleanField(required=False, label=_('Receive E-mail'))
 
     class Meta:
         model = User
-        fields = ("id", "username", "first_name", "last_name", "email", "enterprise", "phone", "celphone", "password",
+        fields = ("id", "username", "first_name", "last_name", "email", "phone", "celphone", "password",
                   "password_confirm", "receive_email")
 
     def __init__(self, *args, **kwargs):
@@ -84,7 +81,6 @@ class CustomUserChangeForm(UserChangeForm):
             except ObjectDoesNotExist:
                 user_profile = UserProfile()
 
-            kwargs.setdefault('initial', {})['enterprise'] = user_profile.enterprise.id
             kwargs.setdefault('initial', {})['phone'] = user_profile.phone
             kwargs.setdefault('initial', {})['celphone'] = user_profile.cell_phone
             kwargs.setdefault('initial', {})['receive_email'] = user_profile.receive_email
@@ -110,7 +106,6 @@ class CustomUserChangeForm(UserChangeForm):
         except ObjectDoesNotExist:
             user_profile = UserProfile()
 
-        user_profile.enterprise = self.cleaned_data['enterprise']
         user_profile.phone = self.cleaned_data['phone']
         user_profile.cell_phone = self.cleaned_data['celphone']
         user_profile.receive_email = self.cleaned_data['receive_email']

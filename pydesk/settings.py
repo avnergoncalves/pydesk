@@ -63,6 +63,8 @@ INSTALLED_APPS = (
     'pydesk.apps.dashboard',
     'pydesk.apps.configuration.enterprise',
     'pydesk.apps.configuration.user',
+    'pydesk.apps.configuration.equip',
+    'pydesk.apps.configuration.project',
 )
 
 MIDDLEWARE_CLASSES = (

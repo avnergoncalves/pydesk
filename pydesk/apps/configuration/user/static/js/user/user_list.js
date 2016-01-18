@@ -42,10 +42,6 @@ $(function() {
 							th : {'width' : "10%"}
 						},
 						{
-							name : "Empresa",
-							th : {'width' : "10%"}
-						},
-						{
 							name : "Editar",
 							order : false,
 							th : {'width' : "5%"},

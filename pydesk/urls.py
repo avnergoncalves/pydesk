@@ -13,7 +13,10 @@ urlpatterns = patterns('',
      url(r'^accounts', include('pydesk.apps.accounts.urls')),
      url(r'^dashboard', include('pydesk.apps.dashboard.urls')),
      url(r'^configuration/enterprise', include('pydesk.apps.configuration.enterprise.urls')),
+     url(r'^configuration/project', include('pydesk.apps.configuration.project.urls')),
+     url(r'^configuration/equip', include('pydesk.apps.configuration.equip.urls')),
      url(r'^configuration/user', include('pydesk.apps.configuration.user.urls')),
+
      
      url(r'^admin/', include(admin.site.urls)),
 )
