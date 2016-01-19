@@ -12,7 +12,7 @@ Access the demo version [here](https://still-plateau-5016.herokuapp.com/).
 User: admin
 Password: admin
 
-South Deploy
+South
 --------------------------------------
 
 1. Gera arquivos de migração
